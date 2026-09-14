@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Admin Dashboard</h1>
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Contact Messages</h5>
+          <p class="card-text">Total: {{ total_contacts }}</p>
+          <p class="card-text">New: {{ new_contacts }}</p>
+          <a href="{% url 'admin_contact_list' %}" class="btn btn-light btn-sm">Manage</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Feedback Submissions</h5>
+          <p class="card-text">Total: {{ total_feedback }}</p>
+          <p class="card-text">New: {{ new_feedback }}</p>
+          <a href="{% url 'admin_feedback_list' %}" class="btn btn-light btn-sm">Manage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="mt-4">Recent Contact Messages</h3>
+  <ul class="list-group mb-4">
+    {% for msg in recent_contacts %}
+      <li class="list-group-item">
+        <strong>{{ msg.full_name }}</strong> – {{ msg.subject|default:"No subject" }}
+        <small class="text-muted float-end">{{ msg.created_at|date:"Y-m-d H:i" }}</small>
+        <br>
+        {{ msg.message|truncatechars:100 }}
+        <a href="{% url 'admin_contact_detail' msg.pk %}" class="btn btn-sm btn-link">View</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item">No recent messages.</li>
+    {% endfor %}
+  </ul>
+  <h3>Recent Feedback</h3>
+  <ul class="list-group">
+    {% for fb in recent_feedback %}
+      <li class="list-group-item">
+        <strong>{{ fb.full_name|default:"Anonymous" }}</strong> – {{ fb.subject }}
+        <small class="text-muted float-end">{{ fb.created_at|date:"Y-m-d H:i" }}</small>
+        <br>
+        {{ fb.description|truncatechars:100 }}
+        <a href="{% url 'admin_feedback_detail' fb.pk %}" class="btn btn-sm btn-link">View</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item">No recent feedback.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

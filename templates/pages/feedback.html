@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Feedback & Grievance Portal | Kigumo Bendera High School{% endblock %}
+
+{% block content %}
+<!-- Subpage Hero -->
+{% include 'components/hero_subpage.html' with title="Feedback & Grievance Portal" subtitle="A Confidential, Safe, and Responsive Channel for Student Welfare & Continuous Improvement" breadcrumb="Feedback & Grievances" badge_text="Confidential & Secure" %}
+
+<!-- 1. Purpose & Protection Guarantee -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <span class="eyebrow-tag">Continuous Improvement</span>
+        <h2 class="section-title">Your Voice Matters in Building Our School</h2>
+        <div class="section-divider start"></div>
+        <p class="lead text-primary fw-semibold">
+          Kigumo Bendera High School is committed to upholding the highest standards of safety, fairness, academic excellence, and accountability.
+        </p>
+        <p>
+          This dedicated portal allows students, parents, guardians, faculty, and community stakeholders to submit constructive suggestions, compliments, or formal grievances directly to the School Grievance Committee and the Office of the Principal.
+        </p>
+        <div class="p-4 rounded-4" style="background: var(--kb-forest-subtle); border-left: 5px solid var(--kb-forest);">
+          <div class="d-flex align-items-center gap-2 mb-2 text-success">
+            <i class="bi bi-shield-lock-fill fs-4"></i>
+            <h6 class="font-serif mb-0 text-success">Non-Retaliation &amp; Confidentiality Guarantee</h6>
+          </div>
+          <p class="small text-secondary mb-0">
+            All reports submitted through this portal are treated with the strictest confidentiality. You have the absolute right to report anonymously. No student or guardian shall experience prejudice for speaking up in good faith.
+          </p>
+        </div>
+      </div>
+
+      <!-- Grievance Resolution Workflow -->
+      <div class="col-lg-6">
+        <div class="p-4 p-md-5 rounded-4 bg-light border shadow-sm">
+          <h4 class="font-serif text-primary mb-3"><i class="bi bi-diagram-2-fill text-warning me-2"></i> Resolution Procedure</h4>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-start gap-3">
+              <div class="p-2 bg-primary text-white rounded-circle fs-6 px-3 fw-bold">1</div>
+              <div>
+                <strong>Submission &amp; Reference ID:</strong> Your report is received and assigned a unique tracking reference code.
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <div class="p-2 bg-warning text-dark rounded-circle fs-6 px-3 fw-bold">2</div>
+              <div>
+                <strong>Independent Review:</strong> The Grievance Desk investigates facts with utmost discretion and fairness.
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <div class="p-2 bg-success text-white rounded-circle fs-6 px-3 fw-bold">3</div>
+              <div>
+                <strong>Action &amp; Feedback:</strong> Corrective measures are taken, and written feedback is provided within 5 business days for non-anonymous submissions.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Submission Form -->
+<section class="section-padding bg-light">
+  <div class="container" style="max-width: 900px;">
+    <div class="kb-form-card">
+      <div class="text-center mb-4">
+        <span class="eyebrow-tag">Submit Record</span>
+        <h3 class="font-serif text-primary mb-2">School Grievance &amp; Feedback Form</h3>
+        <p class="small text-muted">Please provide clear details to facilitate timely and objective assessment.</p>
+      </div>
+
+      <!-- Generated Reference ID Container (Shown on submit) -->
+      <div id="refCodeContainer" class="ref-box d-none">
+        <h6 class="text-success mb-1"><i class="bi bi-check-circle-fill me-1"></i> Submission Tracking Code Generated:</h6>
+        <div id="generatedRefCode" class="ref-code">KB-000000</div>
+        <small class="text-muted">Please note this reference number for follow-up with the Grievance Secretariat.</small>
+      </div>
+
+      <form id="grievanceForm" action="{% url 'feedback' %}" method="POST">
+        {% csrf_token %}
+        <div class="row g-3">
+          <!-- Submitter Category -->
+          <div class="col-md-6">
+            <label for="reporterType" class="form-label">I am submitting as a: <span class="text-danger">*</span></label>
+            <select class="form-select" id="reporterType" name="reporter_type" required>
+              <option value="" selected disabled>Select Category</option>
+              <option value="Parent/Guardian">Parent or Guardian</option>
+              <option value="Student">Current Student</option>
+              <option value="Alumnus">Alumnus / Former Student</option>
+              <option value="Staff">Teacher / Staff Member</option>
+              <option value="Community">Community Stakeholder</option>
+            </select>
+          </div>
+
+          <!-- Nature of Submission -->
+          <div class="col-md-6">
+            <label for="feedbackCategory" class="form-label">Category of Submission <span class="text-danger">*</span></label>
+            <select class="form-select" id="feedbackCategory" name="feedback_category" required>
+              <option value="" selected disabled>Select Category</option>
+              <option value="Academic Standards">Academic Curriculum &amp; Instruction</option>
+              <option value="Boarding & Welfare">Boarding Facilities, Hostels &amp; Food</option>
+              <option value="Safety & Discipline">Student Safety, Discipline &amp; Bullying Prevention</option>
+              <option value="Administration & Fees">Administrative Services &amp; Accounts</option>
+              <option value="Infrastructure">Sanitation &amp; Campus Infrastructure</option>
+              <option value="Commendation">Commendation / Positive Compliment</option>
+              <option value="General Suggestion">General Improvement Idea</option>
+            </select>
+          </div>
+
+          <!-- Anonymous Option -->
+          <div class="col-12">
+            <div class="p-3 bg-light rounded-3 border">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="anonymousCheck" name="is_anonymous" value="true">
+                <label class="form-check-label fw-bold text-primary" for="anonymousCheck">
+                  Submit Anonymously (Do not record my name or email)
+                </label>
+              </div>
+              <small class="text-muted d-block mt-1">
+                If checked, your identity will not be requested or recorded. However, providing your contact details allows us to follow up directly with you.
+              </small>
+            </div>
+          </div>
+
+          <!-- Name & Contact (Optional if Anonymous) -->
+          <div class="col-md-6">
+            <label for="fullName" class="form-label">Your Name (Optional)</label>
+            <input type="text" class="form-control" id="fullName" name="full_name" placeholder="Leave blank if anonymous">
+          </div>
+
+          <div class="col-md-6">
+            <label for="contactInfo" class="form-label">Phone or Email (Optional)</label>
+            <input type="text" class="form-control" id="contactInfo" name="contact_info" placeholder="Leave blank if anonymous">
+          </div>
+
+          <!-- Subject -->
+          <div class="col-12">
+            <label for="grievanceSubject" class="form-label">Brief Headline / Subject <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="grievanceSubject" name="subject" placeholder="Concise summary of the matter" required>
+          </div>
+
+          <!-- Narrative -->
+          <div class="col-12">
+            <label for="narrative" class="form-label">Detailed Description of Feedback / Grievance <span class="text-danger">*</span></label>
+            <textarea class="form-control" id="narrative" name="description" rows="6" placeholder="Please describe dates, locations, departments involved, and specific details..." required></textarea>
+          </div>
+
+          <!-- Desired Outcome -->
+          <div class="col-12">
+            <label for="desiredOutcome" class="form-label">Suggested Resolution or Desired Outcome</label>
+            <textarea class="form-control" id="desiredOutcome" name="desired_outcome" rows="3" placeholder="What positive step or resolution would you like the school to implement?"></textarea>
+          </div>
+
+          <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-kb-gold btn-lg w-100 justify-content-center">
+              <i class="bi bi-shield-check me-2"></i> Submit to Grievance Committee
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

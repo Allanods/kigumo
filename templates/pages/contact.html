@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us & Directions | Kigumo Bendera High School{% endblock %}
+
+{% block content %}
+<!-- Subpage Hero -->
+{% include 'components/hero_subpage.html' with title="Contact the School Office" subtitle="Get in Touch with Administration, Admissions Desk, and Faculty" breadcrumb="Contact Us" badge_text="Inquiries & Visits" %}
+
+<!-- 1. Contact Information & Form -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Left: Contact Details Cards -->
+      <div class="col-lg-5">
+        <span class="eyebrow-tag">Direct Lines</span>
+        <h2 class="section-title">We are Here to Help</h2>
+        <div class="section-divider start"></div>
+        <p class="text-secondary mb-4">
+          Whether inquiring about Form 1 enrollment, student performance records, or scheduling a visit, our administrative desk is ready to assist you.
+        </p>
+
+        <div class="d-flex flex-column gap-3">
+          <!-- Card 1: Location -->
+          <div class="p-3 rounded-4 bg-light border d-flex align-items-start gap-3">
+            <div class="p-3 bg-primary text-white rounded-3 fs-4">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div>
+              <h6 class="font-serif text-primary mb-1">Campus Location</h6>
+              <p class="small text-secondary mb-1">
+                Kigumo Sub-County, Murang'a County, Kenya.<br>
+                Accessible via Thika - Kandara - Kigumo Road.
+              </p>
+              <span class="badge bg-primary bg-opacity-10 text-primary small">Murang'a Region</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Phone -->
+          <div class="p-3 rounded-4 bg-light border d-flex align-items-start gap-3">
+            <div class="p-3 bg-warning text-dark rounded-3 fs-4">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div>
+              <h6 class="font-serif text-primary mb-1">Telephone Contacts</h6>
+              <div class="d-flex flex-column gap-1">
+                <a href="tel:+254710336023" class="text-secondary text-decoration-none">0710336023</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Email -->
+          <div class="p-3 rounded-4 bg-light border d-flex align-items-start gap-3">
+            <div class="p-3 bg-success text-white rounded-3 fs-4">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <div>
+              <h6 class="font-serif text-primary mb-1">Official Emails</h6>
+              <div class="d-flex flex-column gap-1">
+                <a href="mailto:kabiraallan79@gmail.com" class="text-secondary text-decoration-none">kabiraallan79@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Hours -->
+          <div class="p-3 rounded-4 bg-light border d-flex align-items-start gap-3">
+            <div class="p-3 bg-info text-white rounded-3 fs-4">
+              <i class="bi bi-clock-fill"></i>
+            </div>
+            <div>
+              <h6 class="font-serif text-primary mb-1">Office Hours</h6>
+              <p class="small text-secondary mb-0">
+                <strong>Monday &ndash; Friday:</strong> 8:00 AM &ndash; 5:00 PM<br>
+                <strong>Parent Visiting Days:</strong> As designated in term circular
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="col-lg-7">
+        <div class="kb-form-card">
+          <div class="mb-4">
+            <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2 fw-bold text-uppercase">Direct Dispatch</span>
+            <h3 class="font-serif text-primary mb-1">Send an Official Message</h3>
+            <p class="small text-muted mb-0">Fill out this inquiry form and our secretariat will respond promptly.</p>
+          </div>
+
+          <form action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="contactName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="contactName" name="full_name" placeholder="e.g. John Mwangi" required>
+              </div>
+
+              <div class="col-md-6">
+                <label for="contactEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="contactEmail" name="email" placeholder="name@domain.com" required>
+              </div>
+
+              <div class="col-md-6">
+                <label for="contactPhone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="contactPhone" name="phone" placeholder="e.g. 0712 345 678">
+              </div>
+
+              <div class="col-md-6">
+                <label for="inquiryType" class="form-label">Department / Inquiry Type <span class="text-danger">*</span></label>
+                <select class="form-select" id="inquiryType" name="inquiry_type" required>
+                  <option value="" selected disabled>Select Department</option>
+                  <option value="Admissions">Admissions &amp; Intake</option>
+                  <option value="Academics">Academic Records &amp; Transcripts</option>
+                  <option value="Accounts">Accounts &amp; Fee Payments</option>
+                  <option value="Principal">Office of the Principal</option>
+                  <option value="Welfare">Student Welfare &amp; Boarding</option>
+                  <option value="General">General Inquiries</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Summary of your inquiry" required>
+              </div>
+
+              <div class="col-12">
+                <label for="message" class="form-label">Detailed Message <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your full message here..." required></textarea>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-kb-primary btn-lg w-100 justify-content-center">
+                  <i class="bi bi-send-fill me-2"></i> Submit Inquiry to School Office
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Location & Interactive Map Section -->
+<section class="section-padding bg-light border-top">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Visiting Us</span>
+      <h2 class="section-title">Directions &amp; Campus Map</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Kigumo Bendera High School is easily accessible via road networks connecting Murang'a, Thika, and Nairobi.
+      </p>
+    </div>
+
+    <!-- Map container mock -->
+    <div class="rounded-4 overflow-hidden shadow-sm border bg-white position-relative" style="min-height: 380px;">
+      <div class="p-4 p-md-5 d-flex flex-column justify-content-center align-items-center text-center h-100" style="min-height: 380px; background: linear-gradient(135deg, rgba(11,37,69,0.05) 0%, rgba(197,155,39,0.08) 100%);">
+        <i class="bi bi-map-fill text-primary" style="font-size: 4rem;"></i>
+        <h4 class="font-serif text-primary mt-3">Interactive Campus Map</h4>
+        <p class="text-secondary max-w-500 mb-3">
+          Located in Kigumo Sub-County, Murang'a County. Public service vehicles (matatus) are readily available from Thika Main Stage, Murang'a Town, and Kenol.
+        </p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <span class="editable-badge"><i class="bi bi-geo-alt"></i> [GPS Coordinates: Lat -0.8333, Long 37.0167]</span>
+          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-kb-primary">
+            <i class="bi bi-box-arrow-up-right me-1"></i> Open in Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

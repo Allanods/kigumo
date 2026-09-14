@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Feedback Detail{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Feedback Detail</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <p class="form-control-plaintext">{{ feedback.full_name|default:"Anonymous" }}</p>
+    </div>
+    {% if feedback.contact_info %}
+    <div class="mb-3">
+      <label class="form-label">Contact Info</label>
+      <p class="form-control-plaintext">{{ feedback.contact_info }}</p>
+    </div>
+    {% endif %}
+    <div class="mb-3">
+      <label class="form-label">Subject</label>
+      <p class="form-control-plaintext">{{ feedback.subject }}</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" rows="5" readonly>{{ feedback.description }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="status">Status</label>
+      <select name="status" id="status" class="form-select">
+        {% for val, label in feedback.STATUS_CHOICES %}
+          <option value="{{ val }}" {% if feedback.status == val %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    {% if feedback.admin_notes is not None %}
+    <div class="mb-3">
+      <label class="form-label" for="admin_notes">Admin Notes</label>
+      <textarea name="admin_notes" id="admin_notes" class="form-control" rows="3">{{ feedback.admin_notes }}</textarea>
+    </div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="{% url 'admin_feedback_list' %}" class="btn btn-secondary ms-2">Back to List</a>
+    <a href="{% url 'admin_feedback_delete' feedback.pk %}" class="btn btn-danger ms-2">Delete</a>
+  </form>
+</div>
+{% endblock %}

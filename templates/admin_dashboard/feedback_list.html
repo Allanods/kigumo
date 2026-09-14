@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Feedback Submissions{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Feedback Submissions</h1>
+  <form method="get" class="row g-3 mb-3">
+    <div class="col-md-4">
+      <input type="text" name="q" class="form-control" placeholder="Search..." value="{{ query }}">
+    </div>
+    <div class="col-md-3">
+      <select name="status" class="form-select">
+        <option value="">All statuses</option>
+        <option value="NEW" {% if status_filter == 'NEW' %}selected{% endif %}>New</option>
+        <option value="UNDER_REVIEW" {% if status_filter == 'UNDER_REVIEW' %}selected{% endif %}>Under Review</option>
+        <option value="RESOLVED" {% if status_filter == 'RESOLVED' %}selected{% endif %}>Resolved</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </form>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Status</th>
+        <th>Submitted</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fb in page_obj %}
+        <tr>
+          <td>{{ fb.full_name|default:"Anonymous" }}</td>
+          <td>{% if fb.full_name %}<a href="mailto:{{ fb.full_name }}">{{ fb.full_name }}</a>{% else %}—{% endif %}</td>
+          <td>{{ fb.subject }}</td>
+          <td>{{ fb.get_status_display }}</td>
+          <td>{{ fb.created_at|date:"Y-m-d H:i" }}</td>
+          <td>
+            <a href="{% url 'admin_feedback_detail' fb.pk %}" class="btn btn-sm btn-outline-primary">View</a>
+            <a href="{% url 'admin_feedback_delete' fb.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6">No feedback submissions found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <nav>
+    {% if page_obj.has_previous %}
+      <a class="btn btn-outline-secondary" href="?page={{ page_obj.previous_page_number }}&q={{ query }}&status={{ status_filter }}">Previous</a>
+    {% endif %}
+    {% if page_obj.has_next %}
+      <a class="btn btn-outline-secondary" href="?page={{ page_obj.next_page_number }}&q={{ query }}&status={{ status_filter }}">Next</a>
+    {% endif %}
+  </nav>
+</div>
+{% endblock %}

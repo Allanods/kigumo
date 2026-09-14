@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Photo Gallery & Campus Moments | Kigumo Bendera High School{% endblock %}
+
+{% block content %}
+<!-- Subpage Hero -->
+{% include 'components/hero_subpage.html' with title="Campus Photo Gallery" subtitle="A Visual Journey Through Academic Endeavors, Sporting Glory, and School Life" breadcrumb="Gallery" badge_text="School Moments" %}
+
+<!-- 1. Gallery Section -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Life in Pictures</span>
+      <h2 class="section-title">Our Campus, Students &amp; Activities</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead mb-4">
+        Click any photo to inspect in high resolution. Filter by category to explore specific facets of our school community.
+      </p>
+
+      <!-- Category Filter Buttons -->
+      <div class="filter-btn-group">
+        <button type="button" class="filter-btn active" data-filter="all">All Photos</button>
+        <button type="button" class="filter-btn" data-filter="academics">Academics &amp; Labs</button>
+        <button type="button" class="filter-btn" data-filter="sports">Sports &amp; Athletics</button>
+        <button type="button" class="filter-btn" data-filter="campus">Campus &amp; Facilities</button>
+        <button type="button" class="filter-btn" data-filter="events">Events &amp; Culture</button>
+      </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      {% for item in gallery_items %}
+      <div class="gallery-item-wrapper" data-category="{{ item.category }}">
+        <div class="gallery-item">
+          <img src="{{ item.image_url }}" alt="{{ item.title }}" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption-category">{{ item.category_display }}</span>
+            <h5 class="gallery-caption-title">{{ item.title }}</h5>
+            <small class="text-white-50"><i class="bi bi-zoom-in me-1"></i> Click to enlarge</small>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Editable Replacement Guidance Banner -->
+    <div class="mt-5 p-4 rounded-4 bg-light border text-center">
+      <div class="d-inline-flex align-items-center gap-2 mb-2">
+        <i class="bi bi-camera-fill text-warning fs-4"></i>
+        <h5 class="font-serif text-primary mb-0">Customizing School Photographs</h5>
+      </div>
+      <p class="small text-secondary mb-2" style="max-width: 650px; margin: 0 auto;">
+        These gallery photos are configured via Django context and template items. You can easily replace the image URLs with actual school photographs by adding images to <code>static/images/gallery/</code> or uploading via the Django database.
+      </p>
+      <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Replace with Official Kigumo Bendera High School Campus Media]</span>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal Component -->
+<div class="modal fade" id="galleryLightboxModal" tabindex="-1" aria-labelledby="galleryLightboxModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark border-0 rounded-4 overflow-hidden">
+      <div class="modal-header border-0 pb-0">
+        <div>
+          <span id="lightboxCategory" class="badge bg-warning text-dark text-uppercase small"></span>
+          <h5 class="modal-title text-white font-serif mt-1" id="lightboxTitle"></h5>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4 text-center">
+        <img id="lightboxImage" src="" alt="Enlarged view" class="img-fluid rounded-3 shadow" style="max-height: 70vh; object-fit: contain;">
+      </div>
+      <div class="modal-footer border-0 pt-0 text-white-50 small justify-content-between">
+        <span>Kigumo Bendera High School Media Archives</span>
+        <button type="button" class="btn btn-sm btn-outline-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

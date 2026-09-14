@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Contact Message Detail{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Contact Message Detail</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <p class="form-control-plaintext">{{ contact.full_name }}</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <p class="form-control-plaintext"><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+    </div>
+    {% if contact.phone %}
+    <div class="mb-3">
+      <label class="form-label">Phone</label>
+      <p class="form-control-plaintext"><a href="tel:+{{ contact.phone|cut:' ' }}">{{ contact.phone }}</a></p>
+    </div>
+    {% endif %}
+    <div class="mb-3">
+      <label class="form-label">Subject</label>
+      <p class="form-control-plaintext">{{ contact.subject }}</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Message</label>
+      <textarea class="form-control" rows="5" readonly>{{ contact.message }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="status">Status</label>
+      <select name="status" id="status" class="form-select">
+        {% for val, label in contact.STATUS_CHOICES %}
+          <option value="{{ val }}" {% if contact.status == val %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    {% if contact.admin_notes is not None %}
+    <div class="mb-3">
+      <label class="form-label" for="admin_notes">Admin Notes</label>
+      <textarea name="admin_notes" id="admin_notes" class="form-control" rows="3">{{ contact.admin_notes }}</textarea>
+    </div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="{% url 'admin_contact_list' %}" class="btn btn-secondary ms-2">Back to List</a>
+    <a href="{% url 'admin_contact_delete' contact.pk %}" class="btn btn-danger ms-2">Delete</a>
+  </form>
+</div>
+{% endblock %}

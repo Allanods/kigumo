@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Admissions & Enrollment | Kigumo Bendera High School{% endblock %}
+
+{% block content %}
+<!-- Subpage Hero -->
+{% include 'components/hero_subpage.html' with title="Admissions & Enrollment" subtitle="Step-by-Step Guidance for Joining Kigumo Bendera High School" breadcrumb="Admissions" badge_text="Intake Guidelines" %}
+
+<!-- 1. Admission Overview -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="eyebrow-tag">Join Our Community</span>
+        <h2 class="section-title">Welcome to the Admissions Desk</h2>
+        <div class="section-divider start"></div>
+        <p class="lead text-primary fw-semibold">
+          Admission to Kigumo Bendera High School is conducted on merit, character, and compliance with the Ministry of Education guidelines.
+        </p>
+        <p>
+          Each academic year, we welcome Form 1 students placed through the National NEMIS/Ministry of Education selection portal. We also consider a limited number of merit-based transfer applications for Form 2 and Form 3, contingent upon available dormitory bed spaces and curriculum continuity.
+        </p>
+        <p>
+          We take great pride in our welcoming, well-structured orientation program that assists every new scholar in smoothly transitioning into secondary boarding life.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#steps" class="btn btn-kb-primary">
+            <i class="bi bi-list-ol me-1"></i> Admission Steps
+          </a>
+          <a href="#requirements" class="btn btn-kb-outline">
+            <i class="bi bi-card-checklist me-1"></i> Required Documents
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-4 p-md-5 rounded-4 bg-light border shadow-sm">
+          <h4 class="font-serif text-primary mb-3"><i class="bi bi-info-circle-fill text-warning me-2"></i> Key Admission Highlights</h4>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-check-circle-fill text-success fs-4"></i>
+              <div>
+                <strong>Form 1 Placement:</strong> Placed via the Ministry of Education selection system. Download your official calling letter from the MoE portal.
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-check-circle-fill text-success fs-4"></i>
+              <div>
+                <strong>Transfer Requests:</strong> Subject to vacancy and clearance from the previous school head.
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-check-circle-fill text-success fs-4"></i>
+              <div>
+                <strong>Boarding System:</strong> Full boarding school with supervised study halls, structured dining, and recreational schedules.
+              </div>
+            </div>
+            <div class="p-3 bg-white rounded-3 border mt-2">
+              <span class="d-block small text-muted mb-1">Admissions Office Hotline:</span>
+              <a href="tel:+254710336023" class="text-primary fw-bold text-decoration-none">0710336023</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Step-by-Step Admission Process -->
+<section id="steps" class="section-padding bg-light">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Enrollment Journey</span>
+      <h2 class="section-title">4 Simple Steps to Joining Us</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        A transparent and organized onboarding pathway designed to make enrollment seamless for parents and candidates.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Step 1 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="admission-step-card">
+          <div class="step-num-badge">01</div>
+          <h5 class="font-serif text-primary mb-2">Selection &amp; Calling Letter</h5>
+          <p class="small text-secondary mb-3">
+            Receive official selection notification from the Ministry of Education or collect calling letter from our administration desk.
+          </p>
+          <span class="badge bg-primary bg-opacity-10 text-primary small">Step One</span>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="admission-step-card">
+          <div class="step-num-badge">02</div>
+          <h5 class="font-serif text-primary mb-2">Documentation &amp; Medicals</h5>
+          <p class="small text-secondary mb-3">
+            Fill out the official school admission booklet, complete student medical certification, and assemble all supporting identification.
+          </p>
+          <span class="badge bg-primary bg-opacity-10 text-primary small">Step Two</span>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="admission-step-card">
+          <div class="step-num-badge">03</div>
+          <h5 class="font-serif text-primary mb-2">Verification &amp; Reporting</h5>
+          <p class="small text-secondary mb-3">
+            Report to the school on the scheduled date accompanied by parent/guardian for document verification, fee reconciliation, and room allocation.
+          </p>
+          <span class="badge bg-primary bg-opacity-10 text-primary small">Step Three</span>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="admission-step-card">
+          <div class="step-num-badge">04</div>
+          <h5 class="font-serif text-primary mb-2">Orientation &amp; Induction</h5>
+          <p class="small text-secondary mb-3">
+            Participate in our comprehensive 1-week peer orientation, campus tour, club registration, and introduction to school values and culture.
+          </p>
+          <span class="badge bg-primary bg-opacity-10 text-primary small">Step Four</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Entry Requirements Checklist & Fees -->
+<section id="requirements" class="section-padding bg-white">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Checklist -->
+      <div class="col-lg-6">
+        <span class="eyebrow-tag">Document Checklist</span>
+        <h2 class="section-title">Required Reporting Documents</h2>
+        <div class="section-divider start"></div>
+        <p class="text-secondary mb-4">
+          All joining scholars must present the following mandatory documents during admission day:
+        </p>
+
+        <ul class="list-unstyled d-flex flex-column gap-3">
+          <li class="p-3 bg-light rounded-3 border d-flex align-items-center gap-3">
+            <i class="bi bi-file-earmark-text-fill text-primary fs-4"></i>
+            <div>
+              <strong class="d-block">Original Ministry Calling Letter</strong>
+              <small class="text-muted">Downloaded and stamped from the MoE / NEMIS portal.</small>
+            </div>
+          </li>
+          <li class="p-3 bg-light rounded-3 border d-flex align-items-center gap-3">
+            <i class="bi bi-patch-check-fill text-success fs-4"></i>
+            <div>
+              <strong class="d-block">Assessment Result Slip / KCPE Certificate</strong>
+              <small class="text-muted">Original and 2 clear photocopies.</small>
+            </div>
+          </li>
+          <li class="p-3 bg-light rounded-3 border d-flex align-items-center gap-3">
+            <i class="bi bi-person-vcard-fill text-warning fs-4"></i>
+            <div>
+              <strong class="d-block">Birth Certificate &amp; Parent ID Copies</strong>
+              <small class="text-muted">Candidate birth certificate and copies of parent/guardian National ID.</small>
+            </div>
+          </li>
+          <li class="p-3 bg-light rounded-3 border d-flex align-items-center gap-3">
+            <i class="bi bi-hospital-fill text-danger fs-4"></i>
+            <div>
+              <strong class="d-block">Completed Medical Examination Form</strong>
+              <small class="text-muted">Certified by a registered Government Medical Officer.</small>
+            </div>
+          </li>
+          <li class="p-3 bg-light rounded-3 border d-flex align-items-center gap-3">
+            <i class="bi bi-images text-info fs-4"></i>
+            <div>
+              <strong class="d-block">Recent Passport Photographs</strong>
+              <small class="text-muted">Four (4) colored passport size photos of the student.</small>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Fees & Download Pack -->
+      <div class="col-lg-6">
+        <span class="eyebrow-tag">Financial Information</span>
+        <h2 class="section-title">Fee Structure &amp; Support</h2>
+        <div class="section-divider start"></div>
+        <p class="text-secondary mb-3">
+          As a public institution, tuition is subsidized under the Government Free Day Secondary Education (FDSE) initiative. Boarding fees and development levies strictly adhere to the Ministry of Education fee guidelines.
+        </p>
+
+        <div class="p-4 bg-light rounded-4 border mb-4">
+          <h5 class="font-serif text-primary mb-2"><i class="bi bi-cash-stack text-warning me-2"></i> Official Fee Schedule</h5>
+          <p class="small text-muted mb-3">
+            Detailed termly fee breakdowns and approved bank account details are specified in the official school joining instructions:
+          </p>
+          <div class="d-flex flex-column gap-2 mb-3">
+            <div>
+              <span class="small fw-bold text-dark">Approved Boarding Levy:</span>
+              <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Insert Ministry-Approved Fee: KSh. XX,XXX per annum]</span>
+            </div>
+            <div>
+              <span class="small fw-bold text-dark">Authorized Bank Account:</span>
+              <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Bank Name / Branch / Account Number]</span>
+            </div>
+          </div>
+          <div class="alert alert-warning py-2 px-3 small mb-0 border-0">
+            <i class="bi bi-exclamation-triangle-fill me-1"></i> Cash payments are not accepted at the school cash office. All payments must be deposited to authorized bank accounts or via designated school Paybill.
+          </div>
+        </div>
+
+        <div class="p-4 rounded-4 text-white" style="background: linear-gradient(135deg, var(--kb-primary) 0%, var(--kb-primary-light) 100%);">
+          <h5 class="font-serif text-white mb-2"><i class="bi bi-cloud-arrow-down-fill text-warning me-2"></i> Download Admission Pack</h5>
+          <p class="small text-white-50 mb-3">
+            Download the complete PDF package containing the admission letter template, school rules &amp; regulations, uniform guide, and medical form.
+          </p>
+          <a href="{% url 'contact' %}" class="btn btn-kb-gold">
+            <i class="bi bi-download me-1"></i> Request Admission Pack (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Admissions FAQ Accordion -->
+<section class="section-padding bg-light">
+  <div class="container" style="max-width: 900px;">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Got Questions?</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="accordion" id="admissionsAccordion">
+      <!-- FAQ 1 -->
+      <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+        <h2 class="accordion-header" id="faqHeading1">
+          <button class="accordion-button collapsed fw-bold text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+            How are Form 1 students selected for Kigumo Bendera High School?
+          </button>
+        </h2>
+        <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#admissionsAccordion">
+          <div class="accordion-body text-secondary small">
+            Form 1 selection is conducted through the Ministry of Education national placement exercise based on primary assessment results, candidate school choices, and affirmative action guidelines. Parents access calling letters online through the official education portal.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+        <h2 class="accordion-header" id="faqHeading2">
+          <button class="accordion-button collapsed fw-bold text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+            Can students transfer from other schools into Form 2 or Form 3?
+          </button>
+        </h2>
+        <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#admissionsAccordion">
+          <div class="accordion-body text-secondary small">
+            Yes, transfers are considered strictly at the discretion of the Board of Management when vacancies exist. Applicants must present academic transcripts, a letter of clearance and recommendation from the previous principal, and a clean conduct certificate.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+        <h2 class="accordion-header" id="faqHeading3">
+          <button class="accordion-button collapsed fw-bold text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+            What is the policy on school uniform and bedding?
+          </button>
+        </h2>
+        <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#admissionsAccordion">
+          <div class="accordion-body text-secondary small">
+            The admission pack provides exact specifications and color schemes for uniforms, mattress sizes, blankets, and bedsheets. Uniforms may be obtained from designated school suppliers or tailored to exact school fabric standards.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+        <h2 class="accordion-header" id="faqHeading4">
+          <button class="accordion-button collapsed fw-bold text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+            Are bursaries and scholarships accepted?
+          </button>
+        </h2>
+        <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#admissionsAccordion">
+          <div class="accordion-body text-secondary small">
+            Yes. The school coordinates with various Constituency Development Funds (NG-CDF), Murang'a County Bursary Funds, and private scholarship programs (such as Elimu, Equity Wings to Fly, and KCB Foundation) to facilitate fee disbursements.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

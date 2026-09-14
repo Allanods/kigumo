@@ -1,0 +1,134 @@
+{% load static %}
+<!-- Top Contact Bar -->
+<div class="top-bar d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center gap-3">
+      <span><i class="bi bi-geo-alt-fill text-warning me-1"></i> Kigumo, Murang'a County, Kenya</span>
+      <span class="divider">|</span>
+      <span><i class="bi bi-telephone-fill text-warning me-1"></i> <a href="tel:+254710336023" class="text-white text-decoration-none">0710336023</a></span>
+      <span class="divider">|</span>
+      <span><i class="bi bi-envelope-fill text-warning me-1"></i> <a href="mailto:kabiraallan79@gmail.com" class="text-white text-decoration-none">kabiraallan79@gmail.com</a></span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <span class="top-badge"><i class="bi bi-mortarboard-fill me-1"></i> Term 1 In Session</span>
+      <a href="{% url 'admissions' %}" class="fw-bold text-white ps-2"><i class="bi bi-file-earmark-check me-1"></i> Admission Guide</a>
+      <span class="divider">|</span>
+      <a href="{% url 'feedback' %}" class="text-white-50"><i class="bi bi-shield-lock me-1"></i> Grievance Portal</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Sticky Navbar -->
+<nav class="navbar navbar-expand-lg site-navbar sticky-top">
+  <div class="container">
+    <!-- Brand -->
+    <a class="school-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/logo.svg' %}" alt="Kigumo Bendera High School Crest" class="brand-logo-img">
+      <div class="brand-name-group">
+        <span class="brand-title">KIGUMO BENDERA</span>
+        <span class="brand-subtitle">High School &bull; Murang'a</span>
+      </div>
+    </a>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button class="navbar-toggler border-0 p-2 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavOffcanvas" aria-controls="mobileNavOffcanvas" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-1 text-primary"></i>
+    </button>
+
+    <!-- Desktop Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarNav">
+      <ul class="navbar-nav align-items-center gap-1">
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'academics' %}active{% endif %}" href="{% url 'academics' %}">Academics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'admissions' %}active{% endif %}" href="{% url 'admissions' %}">Admissions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'student_life' %}active{% endif %}" href="{% url 'student_life' %}">Student Life</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'departments' %}active{% endif %}" href="{% url 'departments' %}">Departments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'news' %}active{% endif %}" href="{% url 'news' %}">News &amp; Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery' %}">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
+        </li>
+        <li class="nav-item ms-2">
+          <a href="{% url 'admissions' %}" class="btn btn-kb-gold btn-sm px-3 py-2">
+            <i class="bi bi-send-check-fill me-1"></i> Apply
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Offcanvas Drawer -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNavOffcanvas" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header border-bottom bg-light">
+    <div class="d-flex align-items-center gap-2">
+      <img src="{% static 'images/logo.svg' %}" alt="Logo" width="40" height="40">
+      <div>
+        <h6 class="mb-0 font-serif fw-bold text-primary" id="mobileNavLabel">KIGUMO BENDERA</h6>
+        <small class="text-muted text-uppercase" style="font-size: 0.7rem; letter-spacing: 0.05em;">High School</small>
+      </div>
+    </div>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-between p-4">
+    <ul class="nav flex-column gap-2">
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}"><i class="bi bi-house-door me-2"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}"><i class="bi bi-info-circle me-2"></i> About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'academics' %}active{% endif %}" href="{% url 'academics' %}"><i class="bi bi-mortarboard me-2"></i> Academics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'admissions' %}active{% endif %}" href="{% url 'admissions' %}"><i class="bi bi-file-earmark-person me-2"></i> Admissions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'student_life' %}active{% endif %}" href="{% url 'student_life' %}"><i class="bi bi-trophy me-2"></i> Student Life</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'departments' %}active{% endif %}" href="{% url 'departments' %}"><i class="bi bi-diagram-3 me-2"></i> Departments</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'news' %}active{% endif %}" href="{% url 'news' %}"><i class="bi bi-newspaper me-2"></i> News &amp; Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery' %}"><i class="bi bi-images me-2"></i> Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}"><i class="bi bi-envelope me-2"></i> Contact Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'feedback' %}active{% endif %}" href="{% url 'feedback' %}"><i class="bi bi-shield-check me-2"></i> Feedback &amp; Grievances</a>
+      </li>
+    </ul>
+
+    <div class="mt-4 pt-3 border-top">
+      <a href="{% url 'admissions' %}" class="btn btn-kb-gold w-100 mb-3 text-center justify-content-center">
+        <i class="bi bi-send-check-fill me-1"></i> Apply for Admission
+      </a>
+      <div class="small text-muted">
+        <p class="mb-1"><i class="bi bi-geo-alt me-1 text-primary"></i> Kigumo, Murang'a County</p>
+        <p class="mb-0"><i class="bi bi-clock me-1 text-primary"></i> Mon - Fri: 8:00 AM - 5:00 PM</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,385 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Kigumo Bendera High School | Shaping Minds, Building Character{% endblock %}
+
+{% block content %}
+<!-- 1. Hero Section -->
+<section class="hero-home">
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <div class="hero-badge">
+          <i class="bi bi-award-fill text-warning"></i> Premier Center of Academic &amp; Moral Excellence
+        </div>
+        <h1 class="hero-headline">
+          KIGUMO BENDERA <br>
+          <span class="highlight">HIGH SCHOOL</span>
+        </h1>
+        <p class="hero-subtext">
+          "Shaping Minds. Building Character. Inspiring Excellence." A premier secondary boarding school in Murang'a County dedicated to transformative education and exemplary leadership.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="{% url 'admissions' %}" class="btn btn-kb-gold btn-lg">
+            <i class="bi bi-file-earmark-check-fill me-2"></i> Admissions &amp; Intake
+          </a>
+          <a href="{% url 'academics' %}" class="btn btn-kb-outline-light btn-lg">
+            <i class="bi bi-journal-bookmark-fill me-2"></i> Academic Programs
+          </a>
+          <a href="{% url 'about' %}" class="btn btn-link text-white text-decoration-none d-flex align-items-center gap-1 ps-2">
+            <span>Discover Our School</span> <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 d-none d-lg-block text-center">
+        <div class="p-4 rounded-4" style="background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(197, 155, 39, 0.3); backdrop-filter: blur(12px);">
+          <img src="{% static 'images/logo.svg' %}" alt="School Crest" style="width: 170px; height: 170px; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));">
+          <div class="mt-3">
+            <h6 class="text-white font-serif mb-1">Official School Motto</h6>
+            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [School Motto: "Strive for Excellence"]</span>
+          </div>
+          <div class="mt-3 pt-3 border-top border-secondary">
+            <span class="text-warning small text-uppercase fw-bold"><i class="bi bi-clock-history me-1"></i> Admissions Now Open</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats Row -->
+    <div class="row hero-stats-row g-4">
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-number">1,200+</div>
+          <div class="stat-label">Enrolled Scholars</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-number">45+</div>
+          <div class="stat-label">Experienced Tutors</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">University Preparation</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-number">28+</div>
+          <div class="stat-label">Clubs &amp; Sports Disciplines</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Welcome from the Principal Section -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="position-relative">
+          <div class="rounded-4 overflow-hidden shadow-lg border" style="max-height: 480px;">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" 
+                 alt="Principal Welcome" class="img-fluid w-100 object-fit-cover" style="height: 460px;">
+          </div>
+          <div class="position-absolute bottom-0 end-0 bg-white p-3 rounded-3 shadow-sm border mb-3 me-3 text-center" style="max-width: 220px;">
+            <span class="text-primary fw-bold d-block small">Office of the Principal</span>
+            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Principal's Name]</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <span class="eyebrow-tag">Message from Leadership</span>
+        <h2 class="section-title">Nurturing Leaders of Integrity &amp; Distinction</h2>
+        <div class="section-divider start"></div>
+        
+        <p class="lead text-primary fw-semibold mb-3">
+          "At Kigumo Bendera High School, we believe that education is not merely the transmission of facts, but the ignition of intellect and the steadfast cultivation of character."
+        </p>
+        
+        <p class="text-secondary">
+          Welcome to Kigumo Bendera High School. For years, our institution has stood as a beacon of academic rigor, self-discipline, and holistic transformation in Murang'a County. Our students are challenged in state-of-the-art laboratories, mentored by passionate faculty, and empowered through rich sporting and co-curricular programs.
+        </p>
+
+        <div class="p-3 my-3 rounded-3" style="background-color: var(--kb-gold-subtle); border-left: 4px solid var(--kb-gold);">
+          <strong class="text-dark d-block mb-1"><i class="bi bi-chat-quote-fill text-warning me-2"></i> Principal's Desk Note:</strong>
+          <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Editable placeholder: Insert official welcoming remarks from the Chief Principal or Headteacher here]</span>
+        </div>
+
+        <div class="d-flex align-items-center gap-4 mt-4 pt-2">
+          <div>
+            <h6 class="mb-0 font-serif fw-bold text-primary">Chief Principal</h6>
+            <small class="text-muted">Kigumo Bendera High School</small>
+          </div>
+          <div class="border-start ps-4">
+            <a href="{% url 'about' %}" class="btn btn-kb-outline">
+              <span>Read Full School Profile</span> <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Core Pillars / Why Choose Kigumo Bendera -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Our Educational Pillars</span>
+      <h2 class="section-title">Why Kigumo Bendera Stands Apart</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        We provide an environment where high academic expectations are matched with moral guidance and personal wellness.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Pillar 1 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="kb-card pillar-card">
+          <div class="pillar-icon-box">
+            <i class="bi bi-mortarboard-fill"></i>
+          </div>
+          <h4 class="font-serif fs-5 mb-2">Academic Rigor</h4>
+          <p class="small text-secondary mb-3">
+            Comprehensive curriculum delivery led by experienced subject specialists, supplemented by targeted remedial programs and digital learning.
+          </p>
+          <span class="text-primary fw-bold small mt-auto">Excellence First &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="kb-card pillar-card">
+          <div class="pillar-icon-box">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h4 class="font-serif fs-5 mb-2">Character &amp; Values</h4>
+          <p class="small text-secondary mb-3">
+            Discipline, integrity, and self-reliance form the bedrock of our students' daily life, preparing them for responsible citizenship.
+          </p>
+          <span class="text-primary fw-bold small mt-auto">Moral Foundations &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="kb-card pillar-card">
+          <div class="pillar-icon-box">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+          <h4 class="font-serif fs-5 mb-2">Modern Facilities</h4>
+          <p class="small text-secondary mb-3">
+            Fully equipped science laboratories, modern ICT suites, a well-stocked library, and spacious boarding facilities.
+          </p>
+          <span class="text-primary fw-bold small mt-auto">Resource Rich &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="kb-card pillar-card">
+          <div class="pillar-icon-box">
+            <i class="bi bi-dribbble"></i>
+          </div>
+          <h4 class="font-serif fs-5 mb-2">Holistic Development</h4>
+          <p class="small text-secondary mb-3">
+            Over 25 co-curricular clubs, athletics, rugby, football, music, and debate teams competing at regional and national levels.
+          </p>
+          <span class="text-primary fw-bold small mt-auto">Talent Nurturing &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Academic Pathways Section -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-8">
+        <span class="eyebrow-tag">Curriculum &amp; Instruction</span>
+        <h2 class="section-title mb-0">Academic Disciplines &amp; Pathways</h2>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+        <a href="{% url 'academics' %}" class="btn btn-kb-outline">
+          <span>View Curriculum Details</span> <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Science & STEM -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-3 fs-3">
+              <i class="bi bi-virus"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Pure &amp; Applied Sciences</h5>
+              <small class="text-muted">Biology &bull; Chemistry &bull; Physics</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            Practical-first laboratory work designed to spark inquiry, analytical reasoning, and readiness for STEM careers in medicine, engineering, and research.
+          </p>
+          <a href="{% url 'departments' %}" class="fw-bold small text-primary mt-auto">Department Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Mathematics & Computing -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-warning bg-opacity-10 text-warning rounded-3 fs-3">
+              <i class="bi bi-calculator-fill"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Mathematics &amp; ICT</h5>
+              <small class="text-muted">Core Math &bull; Computer Studies</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            Rigorous mathematical problem-solving paired with computer literacy, coding basics, and digital applications in our modern computer laboratory.
+          </p>
+          <a href="{% url 'departments' %}" class="fw-bold small text-primary mt-auto">Department Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Languages & Humanities -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-success bg-opacity-10 text-success rounded-3 fs-3">
+              <i class="bi bi-book-half"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Languages &amp; Humanities</h5>
+              <small class="text-muted">English &bull; Kiswahili &bull; History &bull; CRE</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            Fostering eloquence, critical thought, cultural appreciation, and an informed understanding of global and national civic affairs.
+          </p>
+          <a href="{% url 'departments' %}" class="fw-bold small text-primary mt-auto">Department Details &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Latest News & Announcements Preview -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+      <div>
+        <span class="eyebrow-tag">Campus Dispatches</span>
+        <h2 class="section-title mb-0">News &amp; School Updates</h2>
+      </div>
+      <div class="mt-3 mt-md-0">
+        <a href="{% url 'news' %}" class="btn btn-kb-outline">
+          <span>All Announcements</span> <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Article 1 -->
+      <div class="col-lg-4 col-md-6">
+        <article class="news-card">
+          <div class="news-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=700&auto=format&fit=crop" alt="Academic Term Launch">
+            <span class="news-badge">Academic</span>
+          </div>
+          <div class="p-4 d-flex flex-column flex-grow-1">
+            <div class="news-date">
+              <i class="bi bi-calendar3"></i> Current Term Update
+            </div>
+            <h5 class="font-serif fs-5 mb-2">
+              <a href="{% url 'news' %}" class="text-primary">Commencement of Academic Term &amp; Assessment Schedules</a>
+            </h5>
+            <p class="small text-secondary mb-3">
+              All students have reported back smoothly. Revision clinics and Form 4 university preparation seminars are currently underway.
+            </p>
+            <a href="{% url 'news' %}" class="fw-bold small text-primary mt-auto">Read More &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="col-lg-4 col-md-6">
+        <article class="news-card">
+          <div class="news-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=700&auto=format&fit=crop" alt="Sports Victory">
+            <span class="news-badge" style="background-color: var(--kb-forest);">Sports</span>
+          </div>
+          <div class="p-4 d-flex flex-column flex-grow-1">
+            <div class="news-date">
+              <i class="bi bi-calendar3"></i> Sub-County Games
+            </div>
+            <h5 class="font-serif fs-5 mb-2">
+              <a href="{% url 'news' %}" class="text-primary">Kigumo Bendera Athletes Triumph at Regional Tournaments</a>
+            </h5>
+            <p class="small text-secondary mb-3">
+              Our football and track teams represented the school with utmost discipline and skill, advancing to the county championships.
+            </p>
+            <a href="{% url 'news' %}" class="fw-bold small text-primary mt-auto">Read More &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="col-lg-4 col-md-6">
+        <article class="news-card">
+          <div class="news-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=700&auto=format&fit=crop" alt="ICT Suite Upgrade">
+            <span class="news-badge" style="background-color: var(--kb-gold-dark);">Infrastructure</span>
+          </div>
+          <div class="p-4 d-flex flex-column flex-grow-1">
+            <div class="news-date">
+              <i class="bi bi-calendar3"></i> Campus Development
+            </div>
+            <h5 class="font-serif fs-5 mb-2">
+              <a href="{% url 'news' %}" class="text-primary">Commissioning of Upgraded ICT &amp; Science Laboratories</a>
+            </h5>
+            <p class="small text-secondary mb-3">
+              The Board of Management announces the completion of new high-speed workstations and modernized physics &amp; chemistry apparatus.
+            </p>
+            <a href="{% url 'news' %}" class="fw-bold small text-primary mt-auto">Read More &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Call to Action Banner -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-3 fw-bold text-uppercase">Admissions &bull; Murang'a County</span>
+          <h2>Enroll Your Child at Kigumo Bendera High School</h2>
+          <p class="text-white-50 fs-5 mb-0">
+            Join a legacy of high discipline, exceptional academics, and leadership development. Review our entrance requirements and application deadlines.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <a href="{% url 'admissions' %}" class="btn btn-kb-gold btn-lg me-2 mb-2">
+            <i class="bi bi-journal-text me-1"></i> Admissions Guide
+          </a>
+          <a href="{% url 'contact' %}" class="btn btn-kb-outline-light btn-lg mb-2">
+            <i class="bi bi-telephone-inbound me-1"></i> Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

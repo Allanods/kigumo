@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Academics & Curriculum | Kigumo Bendera High School{% endblock %}
+
+{% block content %}
+<!-- Subpage Hero -->
+{% include 'components/hero_subpage.html' with title="Academics & Curriculum" subtitle="Empowering Scholars with Rigorous Intellectual Discipline and Practical Insight" breadcrumb="Academics" badge_text="Academic Excellence" %}
+
+<!-- 1. Academic Philosophy -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="eyebrow-tag">Educational Philosophy</span>
+        <h2 class="section-title">A Tradition of Rigor, Inquiry, and Mastery</h2>
+        <div class="section-divider start"></div>
+        <p class="lead text-primary fw-semibold">
+          Our curriculum is structured to cultivate critical thinking, curiosity, and high academic competence across both national standards and 21st-century skills.
+        </p>
+        <p>
+          At Kigumo Bendera High School, every student is seen as an active learner. We align our curriculum strictly with the Kenyan Ministry of Education and KICD requirements, incorporating Competency-Based Curriculum (CBC) principles while maintaining the utmost depth in core subjects.
+        </p>
+        <p>
+          Beyond textbook memorization, our instructional model emphasizes experiential learning: hands-on experiments in our science laboratories, interactive computing tasks, mathematics symposiums, debates, and research projects.
+        </p>
+        <div class="d-flex gap-3 mt-4">
+          <a href="{% url 'departments' %}" class="btn btn-kb-primary">
+            <i class="bi bi-diagram-3-fill me-1"></i> Explore Departments
+          </a>
+          <a href="{% url 'admissions' %}" class="btn btn-kb-outline">
+            <i class="bi bi-person-check-fill me-1"></i> Admission Criteria
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-4 p-md-5 rounded-4" style="background: linear-gradient(135deg, var(--kb-primary) 0%, var(--kb-primary-light) 100%); color: #FFFFFF; box-shadow: var(--shadow-lg);">
+          <h4 class="font-serif text-white mb-3"><i class="bi bi-award-fill text-warning me-2"></i> Academic Pillars</h4>
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-check2-circle text-warning fs-5"></i>
+              <div>
+                <strong>Experienced Faculty:</strong> All teachers are TSC-registered subject specialists dedicated to student achievement.
+              </div>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-check2-circle text-warning fs-5"></i>
+              <div>
+                <strong>Regular Assessment:</strong> Continuous assessments, midterm evaluations, and structured joint cluster examinations.
+              </div>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-check2-circle text-warning fs-5"></i>
+              <div>
+                <strong>Remedial &amp; Academic Clinics:</strong> Targeted afternoon and evening clinics for students needing individualized reinforcement.
+              </div>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-check2-circle text-warning fs-5"></i>
+              <div>
+                <strong>Career Mentorship:</strong> Annual career fairs exposing students to university admissions, STEM professions, and industry leaders.
+              </div>
+            </li>
+          </ul>
+          <div class="p-3 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-25">
+            <small class="d-block text-warning text-uppercase fw-bold mb-1">Performance Benchmarking:</small>
+            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Editable: Target Mean Score / Examination Milestones]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Curriculum Pathways & Subject Offerings -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Subject Disciplines</span>
+      <h2 class="section-title">Academic Streams &amp; Subject Offerings</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Comprehensive academic subject pathways structured to prepare candidates for university admission and professional careers.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Sciences -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-primary text-white rounded-3 fs-3">
+              <i class="bi bi-radioactive"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Pure Sciences</h5>
+              <small class="text-muted">STEM Foundation</small>
+            </div>
+          </div>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-3 text-secondary small">
+            <li><i class="bi bi-dot text-primary fs-5"></i> <strong>Biology:</strong> Genetics, physiology, ecology, and biochemistry.</li>
+            <li><i class="bi bi-dot text-primary fs-5"></i> <strong>Chemistry:</strong> Organic chemistry, stoichiometry, analytical labs.</li>
+            <li><i class="bi bi-dot text-primary fs-5"></i> <strong>Physics:</strong> Mechanics, optics, electromagnetism, electronics.</li>
+          </ul>
+          <p class="small text-muted mt-auto">Backed by weekly laboratory practical sessions and science fair competitions.</p>
+        </div>
+      </div>
+
+      <!-- Mathematics -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-warning text-dark rounded-3 fs-3">
+              <i class="bi bi-calculator"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Mathematics</h5>
+              <small class="text-muted">Problem-Solving &amp; Logic</small>
+            </div>
+          </div>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-3 text-secondary small">
+            <li><i class="bi bi-dot text-warning fs-5"></i> <strong>Core Mathematics:</strong> Algebra, geometry, trigonometry, calculus.</li>
+            <li><i class="bi bi-dot text-warning fs-5"></i> <strong>Statistics &amp; Probability:</strong> Data interpretation and modeling.</li>
+            <li><i class="bi bi-dot text-warning fs-5"></i> <strong>Math Contests:</strong> Active participation in county and national symposiums.</li>
+          </ul>
+          <p class="small text-muted mt-auto">Focused on speed, precision, and building confidence in analytical reasoning.</p>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-success text-white rounded-3 fs-3">
+              <i class="bi bi-chat-quote-fill"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Languages</h5>
+              <small class="text-muted">Communication &amp; Eloquence</small>
+            </div>
+          </div>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-3 text-secondary small">
+            <li><i class="bi bi-dot text-success fs-5"></i> <strong>English:</strong> Grammar, set book analysis, composition, comprehension.</li>
+            <li><i class="bi bi-dot text-success fs-5"></i> <strong>Kiswahili:</strong> Fasihi, Sarufi, Insha, Ushairi, and oral literature.</li>
+            <li><i class="bi bi-dot text-success fs-5"></i> <strong>Public Speaking:</strong> Debate clubs and elocution contests.</li>
+          </ul>
+          <p class="small text-muted mt-auto">Cultivating articulate expression, literary appreciation, and national cohesion.</p>
+        </div>
+      </div>
+
+      <!-- Humanities -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-info text-white rounded-3 fs-3">
+              <i class="bi bi-globe-americas"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Humanities</h5>
+              <small class="text-muted">Society &amp; History</small>
+            </div>
+          </div>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-3 text-secondary small">
+            <li><i class="bi bi-dot text-info fs-5"></i> <strong>History &amp; Government:</strong> Kenyan heritage, constitution, world civilizations.</li>
+            <li><i class="bi bi-dot text-info fs-5"></i> <strong>Geography:</strong> Physical geography, human environment, GIS basics.</li>
+            <li><i class="bi bi-dot text-info fs-5"></i> <strong>Christian Religious Education (CRE):</strong> Morality, ethics, theology.</li>
+          </ul>
+          <p class="small text-muted mt-auto">Nurturing responsible citizens with an understanding of global culture and ethics.</p>
+        </div>
+      </div>
+
+      <!-- Technical & Applied -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-secondary text-white rounded-3 fs-3">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Technical &amp; Applied</h5>
+              <small class="text-muted">Practical &amp; Digital Skills</small>
+            </div>
+          </div>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-3 text-secondary small">
+            <li><i class="bi bi-dot text-secondary fs-5"></i> <strong>Computer Studies:</strong> Programming basics, databases, spreadsheets, networks.</li>
+            <li><i class="bi bi-dot text-secondary fs-5"></i> <strong>Agriculture:</strong> Soil science, livestock management, agronomy on school plots.</li>
+            <li><i class="bi bi-dot text-secondary fs-5"></i> <strong>Business Studies:</strong> Accounting, marketing, commerce, entrepreneurship.</li>
+          </ul>
+          <p class="small text-muted mt-auto">Bridging theoretical knowledge with commercial and technological readiness.</p>
+        </div>
+      </div>
+
+      <!-- Academic Support -->
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-dark text-warning rounded-3 fs-3">
+              <i class="bi bi-journal-bookmark-fill"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Academic Support</h5>
+              <small class="text-muted">Mentorship &amp; Counseling</small>
+            </div>
+          </div>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-3 text-secondary small">
+            <li><i class="bi bi-dot text-warning fs-5"></i> <strong>Guidance &amp; Counseling:</strong> Academic stress relief and life coaching.</li>
+            <li><i class="bi bi-dot text-warning fs-5"></i> <strong>Peer Tutoring:</strong> Subject circles driven by top student mentors.</li>
+            <li><i class="bi bi-dot text-warning fs-5"></i> <strong>Resource Library:</strong> Quiet study halls open until late prep hours.</li>
+          </ul>
+          <p class="small text-muted mt-auto">Ensuring no student is left behind regardless of entry grade.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Academic Strategy & Examination Note -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 order-lg-2">
+        <span class="eyebrow-tag">Evaluation Framework</span>
+        <h2 class="section-title">Examination Readiness &amp; Performance Records</h2>
+        <div class="section-divider start"></div>
+        <p>
+          Evaluation at Kigumo Bendera High School is diagnostic and development-oriented. Continuous assessment tests (CATs) are conducted every term, followed by standardized midterm and end-of-term examinations.
+        </p>
+        <p>
+          For Form 3 and Form 4 candidate classes, we administer rigorous cluster examinations in conjunction with leading secondary institutions within Murang'a County and nationally, providing students with realistic national examination calibration.
+        </p>
+        <div class="p-4 rounded-3 bg-light border my-3">
+          <h6 class="fw-bold text-primary mb-2"><i class="bi bi-bar-chart-line-fill text-warning me-1"></i> Official KCSE &amp; Assessment Records:</h6>
+          <p class="small text-muted mb-2">
+            Historical examination performance, subject rankings, and university admission statistics can be updated here:
+          </p>
+          <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Editable Placeholder: Insert School Examination Mean Score &amp; University Transition %]</span>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="rounded-4 overflow-hidden shadow border">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop" 
+               alt="Library and Research" class="img-fluid w-100 object-fit-cover" style="height: 420px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

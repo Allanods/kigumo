@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}News, Announcements & Events | Kigumo Bendera High School{% endblock %}
+
+{% block content %}
+<!-- Subpage Hero -->
+{% include 'components/hero_subpage.html' with title="News & Events" subtitle="Official Dispatches, Term Calendars, and Student Achievements" breadcrumb="News & Events" badge_text="School Bulletin" %}
+
+<!-- 1. Featured Headline Banner -->
+<section class="section-padding-sm bg-white border-bottom">
+  <div class="container">
+    <div class="p-4 p-lg-5 rounded-4" style="background: linear-gradient(135deg, var(--kb-primary) 0%, var(--kb-primary-light) 100%); color: #FFFFFF; box-shadow: var(--shadow-md);">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2 fw-bold text-uppercase">Featured Announcement</span>
+          <h2 class="font-serif text-white mb-2">School Term Opening &amp; Academic Re-Focus Guidelines</h2>
+          <p class="text-white-50 mb-3">
+            Important briefing for parents, guardians, and continuing students regarding reporting dates, revision materials, and termly academic clinics.
+          </p>
+          <div class="d-flex align-items-center gap-3 text-white-50 small">
+            <span><i class="bi bi-calendar3 me-1 text-warning"></i> Current Academic Calendar</span>
+            <span>&bull;</span>
+            <span><i class="bi bi-person me-1 text-warning"></i> Office of the Principal</span>
+          </div>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a href="#articles" class="btn btn-kb-gold">
+            <i class="bi bi-arrow-down-circle me-1"></i> Read All Dispatches
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. News Articles & Events List -->
+<section id="articles" class="section-padding bg-light">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Main Articles Column -->
+      <div class="col-lg-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="font-serif text-primary mb-0">Latest Articles</h3>
+          <span class="text-muted small">Showing published updates</span>
+        </div>
+
+        <div class="row g-4">
+          {% for article in news_articles %}
+          <div class="col-md-6">
+            <article class="news-card">
+              <div class="news-thumb-wrap">
+                <img src="{{ article.image_url }}" alt="{{ article.title }}">
+                <span class="news-badge">{{ article.category }}</span>
+              </div>
+              <div class="p-4 d-flex flex-column flex-grow-1">
+                <div class="news-date">
+                  <i class="bi bi-calendar3"></i> {{ article.date }}
+                </div>
+                <h5 class="font-serif fs-5 mb-2">
+                  <a href="#" class="text-primary">{{ article.title }}</a>
+                </h5>
+                <p class="small text-secondary mb-3">
+                  {{ article.summary }}
+                </p>
+                <div class="mt-auto d-flex justify-content-between align-items-center pt-2 border-top">
+                  <span class="small text-muted"><i class="bi bi-eye me-1"></i> {{ article.author }}</span>
+                  <a href="#" class="fw-bold small text-primary">Details &rarr;</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          {% empty %}
+          <div class="col-12">
+            <div class="alert alert-info">No news articles published yet. Check back soon.</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Events & Term Calendar Sidebar -->
+      <div class="col-lg-4">
+        <div class="mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="font-serif text-primary mb-0">Upcoming Events</h4>
+            <i class="bi bi-calendar-event text-warning fs-4"></i>
+          </div>
+
+          <div class="d-flex flex-column gap-3">
+            {% for event in upcoming_events %}
+            <div class="event-item-card">
+              <div class="event-date-box">
+                <div class="event-date-day">{{ event.day }}</div>
+                <div class="event-date-month">{{ event.month }}</div>
+              </div>
+              <div>
+                <h6 class="font-serif text-primary mb-1">{{ event.title }}</h6>
+                <div class="small text-muted d-flex align-items-center gap-2">
+                  <span><i class="bi bi-geo-alt text-warning"></i> {{ event.venue }}</span>
+                  <span>&bull;</span>
+                  <span><i class="bi bi-clock"></i> {{ event.time }}</span>
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            <div class="alert alert-light">No upcoming events scheduled.</div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Download Term Dates & Circulars -->
+        <div class="p-4 rounded-4 bg-white border shadow-sm">
+          <h5 class="font-serif text-primary mb-2"><i class="bi bi-file-earmark-pdf-fill text-danger me-2"></i> Official Circulars</h5>
+          <p class="small text-secondary mb-3">
+            Download current term circulars, newsletters, and fee payment advisories released by the school administration.
+          </p>
+          <ul class="list-unstyled d-flex flex-column gap-2 small mb-4">
+            <li class="p-2 bg-light rounded border d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-file-pdf text-danger me-1"></i> Term 1 Parent Circular.pdf</span>
+              <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-primary py-0 px-2">Download</a>
+            </li>
+            <li class="p-2 bg-light rounded border d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-file-pdf text-danger me-1"></i> KCSE Candidate Revision Guide.pdf</span>
+              <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-primary py-0 px-2">Download</a>
+            </li>
+            <li class="p-2 bg-light rounded border d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-file-pdf text-danger me-1"></i> School Rules &amp; Regulations.pdf</span>
+              <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-primary py-0 px-2">Download</a>
+            </li>
+          </ul>
+
+          <div class="p-3 rounded-3" style="background-color: var(--kb-gold-subtle); border: 1px dashed var(--kb-gold);">
+            <small class="text-dark d-block mb-1 fw-bold">Noticeboard Contact:</small>
+            <a href="mailto:kabiraallan79@gmail.com" class="text-primary fw-semibold text-decoration-none">kabiraallan79@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

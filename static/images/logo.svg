@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2545" />
+      <stop offset="50%" stop-color="#133E87" />
+      <stop offset="100%" stop-color="#07192F" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0A5" />
+      <stop offset="35%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#AA820A" />
+      <stop offset="100%" stop-color="#F4C430" />
+    </linearGradient>
+    <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B2545" />
+      <stop offset="50%" stop-color="#19457E" />
+      <stop offset="100%" stop-color="#0B2545" />
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Outer Ring Ornament -->
+  <circle cx="200" cy="180" r="150" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="6,4" opacity="0.6"/>
+
+  <!-- Shield Body -->
+  <g filter="url(#dropShadow)">
+    <path d="M 200,40 
+             C 270,40 330,50 330,120 
+             C 330,225 240,295 200,320 
+             C 160,295 70,225 70,120 
+             C 70,50 130,40 200,40 Z" 
+          fill="url(#shieldGrad)" 
+          stroke="url(#goldGrad)" 
+          stroke-width="7" />
+    
+    <!-- Inner Shield Inset -->
+    <path d="M 200,52 
+             C 260,52 315,62 315,122 
+             C 315,215 235,278 200,302 
+             C 165,278 85,215 85,122 
+             C 85,62 140,52 200,52 Z" 
+          fill="none" 
+          stroke="url(#goldGrad)" 
+          stroke-width="1.8" 
+          opacity="0.8" />
+  </g>
+
+  <!-- Central Quartering Cross Lines -->
+  <path d="M 200,65 L 200,285" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.3" />
+  <path d="M 95,150 L 305,150" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.3" />
+
+  <!-- Symbolic Elements -->
+  <!-- Top Center: Torch of Enlightenment / Wisdom -->
+  <g id="torch" transform="translate(200, 110)">
+    <!-- Torch Base & Handle -->
+    <path d="M -8,22 L 8,22 L 4,38 L -4,38 Z" fill="url(#goldGrad)" />
+    <path d="M -13,10 L 13,10 L 9,20 L -9,20 Z" fill="url(#goldGrad)" />
+    <!-- Flame -->
+    <path d="M 0,-22 C 8,-12 14,-2 9,8 C 4,14 -4,14 -9,8 C -14,-2 -8,-12 0,-22 Z" fill="#FF5722" />
+    <path d="M 0,-14 C 4,-7 7,0 4,5 C 2,8 -2,8 -4,5 C -7,0 -4,-7 0,-14 Z" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Middle-Bottom: Open Book of Knowledge -->
+  <g id="book" transform="translate(200, 215)">
+    <!-- Book Spine and Pages -->
+    <path d="M 0,-5 C 20,-18 52,-14 62,-2 L 58,26 C 48,16 20,12 0,22 C -20,12 -48,16 -58,26 L -62,-2 C -52,-14 -20,-18 0,-5 Z" 
+          fill="#FFFFFF" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <path d="M 0,-5 L 0,22" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <!-- Page text lines (left & right) -->
+    <line x1="-48" y1="3" x2="-14" y2="-3" stroke="#0B2545" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <line x1="-46" y1="11" x2="-14" y2="5" stroke="#0B2545" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <line x1="-44" y1="19" x2="-14" y2="13" stroke="#0B2545" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+    <line x1="14" y1="-3" x2="48" y2="3" stroke="#0B2545" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <line x1="14" y1="5" x2="46" y2="11" stroke="#0B2545" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <line x1="14" y1="13" x2="44" y2="19" stroke="#0B2545" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  </g>
+
+  <!-- Stars of Excellence & Character (Top Left & Top Right) -->
+  <!-- Left Star -->
+  <g transform="translate(130, 115) scale(0.8)">
+    <polygon points="0,-12 3.5,-3.5 12,0 3.5,3.5 0,12 -3.5,3.5 -12,0 -3.5,-3.5" fill="url(#goldGrad)" />
+  </g>
+  <!-- Right Star -->
+  <g transform="translate(270, 115) scale(0.8)">
+    <polygon points="0,-12 3.5,-3.5 12,0 3.5,3.5 0,12 -3.5,3.5 -12,0 -3.5,-3.5" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Laurel Wreath accents around bottom shield -->
+  <g stroke="url(#goldGrad)" stroke-width="1.8" fill="none" opacity="0.75">
+    <path d="M 125,275 C 105,250 85,200 80,150" />
+    <circle cx="95" cy="240" r="3" fill="url(#goldGrad)" />
+    <circle cx="85" cy="205" r="3" fill="url(#goldGrad)" />
+    <circle cx="81" cy="170" r="3" fill="url(#goldGrad)" />
+
+    <path d="M 275,275 C 295,250 315,200 320,150" />
+    <circle cx="305" cy="240" r="3" fill="url(#goldGrad)" />
+    <circle cx="315" cy="205" r="3" fill="url(#goldGrad)" />
+    <circle cx="319" cy="170" r="3" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Bottom Banner / Ribbon -->
+  <g filter="url(#dropShadow)">
+    <!-- Ribbon tails -->
+    <path d="M 35,325 L 85,305 L 85,345 L 35,365 L 55,345 Z" fill="#07192F" stroke="url(#goldGrad)" stroke-width="2" />
+    <path d="M 365,325 L 315,305 L 315,345 L 365,365 L 345,345 Z" fill="#07192F" stroke="url(#goldGrad)" stroke-width="2" />
+
+    <!-- Main Ribbon Arch -->
+    <path d="M 65,340 
+             C 130,320 270,320 335,340 
+             L 325,372 
+             C 265,352 135,352 75,372 Z" 
+          fill="url(#ribbonGrad)" 
+          stroke="url(#goldGrad)" 
+          stroke-width="3" />
+  </g>
+
+  <!-- Motto / School Text on Ribbon -->
+  <text font-family="'Cinzel', 'Playfair Display', 'Times New Roman', serif" 
+        font-size="15" 
+        font-weight="bold" 
+        fill="url(#goldGrad)" 
+        text-anchor="middle" 
+        letter-spacing="2.5">
+    <textPath href="#ribbonPath" startOffset="50%">
+      EXCELLENCE &amp; INTEGRITY
+    </textPath>
+  </text>
+
+  <!-- Hidden path for text alignment -->
+  <path id="ribbonPath" d="M 75,360 C 135,340 265,340 325,360" fill="none" />
+
+  <!-- Top Curved School Name -->
+  <path id="topArch" d="M 70,55 C 130,15 270,15 330,55" fill="none" />
+  <text font-family="'Cinzel', 'Georgia', serif" 
+        font-size="15" 
+        font-weight="bold" 
+        fill="#0B2545" 
+        letter-spacing="3" 
+        text-anchor="middle">
+    <textPath href="#topArch" startOffset="50%">
+      KIGUMO BENDERA
+    </textPath>
+  </text>
+</svg>

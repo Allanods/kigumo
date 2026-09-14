@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | Kigumo Bendera High School{% endblock %}
+
+{% block content %}
+<!-- Subpage Hero -->
+{% include 'components/hero_subpage.html' with title="About Kigumo Bendera High School" subtitle="Heritage, Vision, and Dedication to Holistic Academic & Moral Excellence" breadcrumb="About Us" badge_text="Established Heritage" %}
+
+<!-- 1. Who We Are / Overview -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="eyebrow-tag">Who We Are</span>
+        <h2 class="section-title">A Proud Tradition of Secondary Education in Murang'a County</h2>
+        <div class="section-divider start"></div>
+        <p>
+          <strong>Kigumo Bendera High School</strong> is a distinguished public secondary boarding school situated in the tranquil, lush environment of Kigumo, Murang'a County. Designed to cultivate academic ambition and principled character, the school has nurtured generations of young scholars into national leaders, engineers, doctors, teachers, entrepreneurs, and public servants.
+        </p>
+        <p>
+          Under the stewardship of the Ministry of Education and our active Board of Management (BOM), the school blends rigorous curriculum delivery with comprehensive co-curricular programs. We believe every child entrusted to our care possesses unique potential that flourishes under dedicated mentorship and structured discipline.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <span class="text-primary fw-bold fs-5 d-block">Public Boarding</span>
+            <small class="text-muted">Boys / Secondary Education</small>
+          </div>
+          <div class="p-3 bg-light rounded-3 border">
+            <span class="text-primary fw-bold fs-5 d-block">Murang'a County</span>
+            <small class="text-muted">Kigumo Sub-County</small>
+          </div>
+          <div class="p-3 bg-light rounded-3 border">
+            <span class="text-primary fw-bold fs-5 d-block">MoE Registered</span>
+            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [School Registration Code]</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=600&auto=format&fit=crop" 
+                 alt="School Campus Grounds" class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover" style="height: 240px;">
+          </div>
+          <div class="col-6">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" 
+                 alt="Students in Classroom" class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover" style="height: 240px;">
+          </div>
+          <div class="col-12">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" 
+                 alt="Academic Discussion" class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover" style="height: 200px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Vision, Mission & Core Values -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Our Guiding Compass</span>
+      <h2 class="section-title">Vision, Mission &amp; Core Values</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        The fundamental beliefs and strategic directions that define our culture and aspiration.
+      </p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <!-- Vision -->
+      <div class="col-lg-6">
+        <div class="kb-card h-100 border-top border-4 border-primary">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 rounded-circle bg-primary text-white fs-3">
+              <i class="bi bi-eye-fill"></i>
+            </div>
+            <div>
+              <h3 class="font-serif fs-4 mb-0">Our Vision</h3>
+              <small class="text-muted">Aspiration for the Future</small>
+            </div>
+          </div>
+          <p class="lead text-primary fw-bold">
+            "To be a premier national center of holistic secondary education, producing principled, innovative, and competitive scholars."
+          </p>
+          <div class="mt-auto pt-2">
+            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Editable: Update official school vision statement as gazetted by BOM]</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission -->
+      <div class="col-lg-6">
+        <div class="kb-card h-100 border-top border-4 border-warning">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 rounded-circle bg-warning text-dark fs-3">
+              <i class="bi bi-compass-fill"></i>
+            </div>
+            <div>
+              <h3 class="font-serif fs-4 mb-0">Our Mission</h3>
+              <small class="text-muted">Our Everyday Commitment</small>
+            </div>
+          </div>
+          <p class="lead text-primary fw-bold">
+            "To deliver quality, inclusive, and transformative education through rigorous academic mentorship, disciplined co-curricular engagements, and moral instruction."
+          </p>
+          <div class="mt-auto pt-2">
+            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Editable: Update official school mission statement as gazetted by BOM]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Values Grid -->
+    <h4 class="font-serif text-center mb-4 text-primary">Our 5 Core Values</h4>
+    <div class="row g-3">
+      <div class="col-md">
+        <div class="p-4 bg-white rounded-3 border text-center h-100 shadow-sm">
+          <i class="bi bi-shield-lock-fill text-primary fs-2 mb-2 d-block"></i>
+          <h6 class="font-serif fw-bold text-primary mb-1">Integrity</h6>
+          <small class="text-muted">Honesty, ethical accountability, and transparency in word and deed.</small>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="p-4 bg-white rounded-3 border text-center h-100 shadow-sm">
+          <i class="bi bi-trophy-fill text-warning fs-2 mb-2 d-block"></i>
+          <h6 class="font-serif fw-bold text-primary mb-1">Excellence</h6>
+          <small class="text-muted">Relentless pursuit of superior performance in class and on the sports pitch.</small>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="p-4 bg-white rounded-3 border text-center h-100 shadow-sm">
+          <i class="bi bi-hammer text-success fs-2 mb-2 d-block"></i>
+          <h6 class="font-serif fw-bold text-primary mb-1">Diligence</h6>
+          <small class="text-muted">Resilience, thoroughness, and dedicated hard work in all endeavors.</small>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="p-4 bg-white rounded-3 border text-center h-100 shadow-sm">
+          <i class="bi bi-people-fill text-info fs-2 mb-2 d-block"></i>
+          <h6 class="font-serif fw-bold text-primary mb-1">Mutual Respect</h6>
+          <small class="text-muted">Dignity, empathy, courteous teamwork, and cultural inclusivity.</small>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="p-4 bg-white rounded-3 border text-center h-100 shadow-sm">
+          <i class="bi bi-lightbulb-fill text-warning fs-2 mb-2 d-block"></i>
+          <h6 class="font-serif fw-bold text-primary mb-1">Innovation</h6>
+          <small class="text-muted">Creative problem-solving, digital literacy, and inquisitive thinking.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Leadership & Governance -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Governance &amp; Leadership</span>
+      <h2 class="section-title">School Administration &amp; Management</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Led by committed educational professionals and an accomplished Board of Management.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- BOM Chair -->
+      <div class="col-lg-3 col-md-6">
+        <div class="kb-card text-center">
+          <div class="rounded-circle overflow-hidden mx-auto mb-3 border border-3 border-warning" style="width: 130px; height: 130px;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" 
+                 alt="BOM Chairperson" class="w-100 h-100 object-fit-cover">
+          </div>
+          <h5 class="font-serif mb-1 text-primary">BOM Chairperson</h5>
+          <span class="editable-badge mb-2"><i class="bi bi-pencil-square"></i> [Chairman's Name]</span>
+          <p class="small text-muted mb-0">Strategic direction and school policy oversight.</p>
+        </div>
+      </div>
+
+      <!-- Chief Principal -->
+      <div class="col-lg-3 col-md-6">
+        <div class="kb-card text-center">
+          <div class="rounded-circle overflow-hidden mx-auto mb-3 border border-3 border-primary" style="width: 130px; height: 130px;">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" 
+                 alt="Chief Principal" class="w-100 h-100 object-fit-cover">
+          </div>
+          <h5 class="font-serif mb-1 text-primary">Chief Principal</h5>
+          <span class="editable-badge mb-2"><i class="bi bi-pencil-square"></i> [Principal's Name]</span>
+          <p class="small text-muted mb-0">Chief Executive, Academic &amp; Administrative Leader.</p>
+        </div>
+      </div>
+
+      <!-- Deputy Principal Academics -->
+      <div class="col-lg-3 col-md-6">
+        <div class="kb-card text-center">
+          <div class="rounded-circle overflow-hidden mx-auto mb-3 border border-3 border-secondary" style="width: 130px; height: 130px;">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" 
+                 alt="Deputy Principal" class="w-100 h-100 object-fit-cover">
+          </div>
+          <h5 class="font-serif mb-1 text-primary">Deputy Principal</h5>
+          <span class="editable-badge mb-2"><i class="bi bi-pencil-square"></i> [Deputy Principal - Academics]</span>
+          <p class="small text-muted mb-0">Curriculum execution, timetable, and evaluation.</p>
+        </div>
+      </div>
+
+      <!-- Deputy Principal Administration -->
+      <div class="col-lg-3 col-md-6">
+        <div class="kb-card text-center">
+          <div class="rounded-circle overflow-hidden mx-auto mb-3 border border-3 border-secondary" style="width: 130px; height: 130px;">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" 
+                 alt="Deputy Principal Administration" class="w-100 h-100 object-fit-cover">
+          </div>
+          <h5 class="font-serif mb-1 text-primary">Deputy Principal</h5>
+          <span class="editable-badge mb-2"><i class="bi bi-pencil-square"></i> [Deputy Principal - Administration]</span>
+          <p class="small text-muted mb-0">Student discipline, boarding welfare &amp; operations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Campus Infrastructure & Facilities -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Campus Infrastructure</span>
+      <h2 class="section-title">World-Class Learning Environment</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Purpose-built educational facilities supporting both high-order intellectual training and physical vigor.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="kb-card">
+          <i class="bi bi-flask-fill text-primary fs-1 mb-3"></i>
+          <h5 class="font-serif">Modern Science Laboratories</h5>
+          <p class="small text-secondary">
+            Spacious, dedicated Chemistry, Physics, and Biology labs fitted with safety gear, gas lines, precision microscopes, and demonstrator benches.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kb-card">
+          <i class="bi bi-book-half text-warning fs-1 mb-3"></i>
+          <h5 class="font-serif">Resourceful Library</h5>
+          <p class="small text-secondary">
+            Extensive physical collection of standard course books, reference materials, past national examination papers, and digital inquiry terminals.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kb-card">
+          <i class="bi bi-pc-display-horizontal text-success fs-1 mb-3"></i>
+          <h5 class="font-serif">High-Speed ICT Suite</h5>
+          <p class="small text-secondary">
+            Networked computer workstations providing coding instruction, digital literacy courses, and educational software for students.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kb-card">
+          <i class="bi bi-hospital text-danger fs-1 mb-3"></i>
+          <h5 class="font-serif">Health &amp; Sanatorium</h5>
+          <p class="small text-secondary">
+            On-campus health dispensary staffed by qualified medical personnel ensuring immediate medical care and wellness monitoring for boarding students.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kb-card">
+          <i class="bi bi-houses-fill text-primary fs-1 mb-3"></i>
+          <h5 class="font-serif">Secure Boarding Hostels</h5>
+          <p class="small text-secondary">
+            Comfortable, well-ventilated dormitories overseen by House Masters and Matrons fostering peer camaraderie, hygiene, and structured prep hours.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kb-card">
+          <i class="bi bi-trophy text-warning fs-1 mb-3"></i>
+          <h5 class="font-serif">Athletic Fields &amp; Courts</h5>
+          <p class="small text-secondary">
+            Standard football pitch, rugby field, basketball court, volleyball pitch, and athletics track promoting fitness and competitive teamwork.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

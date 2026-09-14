@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Student Life & Co-Curricular | Kigumo Bendera High School{% endblock %}
+
+{% block content %}
+<!-- Subpage Hero -->
+{% include 'components/hero_subpage.html' with title="Student Life & Co-Curricular" subtitle="Developing Well-Rounded Character Through Sports, Arts, Leadership, and Brotherhood" breadcrumb="Student Life" badge_text="Holistic Growth" %}
+
+<!-- 1. Student Life Philosophy -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="eyebrow-tag">Life at Kigumo Bendera</span>
+        <h2 class="section-title">Beyond the Chalkboard: Where Character is Forged</h2>
+        <div class="section-divider start"></div>
+        <p class="lead text-primary fw-semibold">
+          Education at Kigumo Bendera extends far beyond test scores. We cultivate resilient, disciplined, and creative young leaders equipped for real-world collaboration.
+        </p>
+        <p>
+          Every afternoon after academic sessions, our campus comes alive with vibrant athletic training, spirited debates, musical rehearsals, and STEM project workshops. Our rich boarding community instills deep lifelong friendships, personal responsibility, and healthy competition.
+        </p>
+        <div class="row g-3 mt-3">
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded-3 border">
+              <span class="fs-4 fw-bold text-primary font-serif d-block">20+</span>
+              <span class="small text-muted">Clubs &amp; Societies</span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded-3 border">
+              <span class="fs-4 fw-bold text-warning font-serif d-block">10+</span>
+              <span class="small text-muted">Sporting Disciplines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="rounded-4 overflow-hidden shadow-lg border">
+          <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=800&auto=format&fit=crop" 
+               alt="Sports and Student Life" class="img-fluid w-100 object-fit-cover" style="height: 400px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Sports & Athletics -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Athletic Excellence</span>
+      <h2 class="section-title">Sports &amp; Physical Fitness</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Instilling physical endurance, mental toughness, teamwork, and fair play across multiple disciplines.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-primary text-white rounded-3 fs-3">
+              <i class="bi bi-dribbble"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Football (Soccer)</h5>
+              <small class="text-muted">Sub-County Champions</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            Our premier school football team competes in secondary school ball games from zonal to county tiers, supported by dedicated coaching staff.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-warning text-dark rounded-3 fs-3">
+              <i class="bi bi-trophy"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Rugby 7s &amp; 15s</h5>
+              <small class="text-muted">Strength &amp; Strategy</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            A revered sport at Kigumo Bendera teaching discipline, tactical positioning, and relentless team synergy on our dedicated rugby pitch.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-success text-white rounded-3 fs-3">
+              <i class="bi bi-speedometer2"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Track &amp; Field Athletics</h5>
+              <small class="text-muted">Sprint, Mid &amp; Long Distance</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            Annual inter-house athletic championships showcase raw talent in sprints, middle distance, relays, high jump, and javelin.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-info text-white rounded-3 fs-3">
+              <i class="bi bi-circle"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Basketball</h5>
+              <small class="text-muted">Court Agility &amp; Teamwork</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            Active basketball squad playing on our all-weather court, conducting daily drills and participating in friendly inter-school fixtures.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-danger text-white rounded-3 fs-3">
+              <i class="bi bi-grid-3x3"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Volleyball &amp; Handball</h5>
+              <small class="text-muted">Hand-Eye Coordination</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            Popular team sports emphasizing fast reflexes, communication, and sportsmanship across junior and senior squads.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="kb-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-secondary text-white rounded-3 fs-3">
+              <i class="bi bi-gem"></i>
+            </div>
+            <div>
+              <h5 class="font-serif mb-0">Indoor Games &amp; Chess</h5>
+              <small class="text-muted">Strategic Intellect</small>
+            </div>
+          </div>
+          <p class="small text-secondary">
+            Table tennis, badminton, and chess clubs developing patient logical analysis and concentration during leisure weekends.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Clubs & Societies -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="section-title-wrap text-center">
+      <span class="eyebrow-tag">Enrichment &amp; Expression</span>
+      <h2 class="section-title">Clubs, Societies &amp; Creative Arts</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Encouraging scholars to pursue their intellectual, spiritual, and artistic passions through structured student clubs.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 bg-light rounded-4 border h-100">
+          <div class="d-flex align-items-center gap-2 mb-2 text-primary">
+            <i class="bi bi-robot fs-4"></i>
+            <h5 class="font-serif mb-0">Science &amp; Robotics Club</h5>
+          </div>
+          <p class="small text-secondary mb-0">
+            Innovative experiments, coding workshops, model building, and entries into the National Science and Engineering Fair.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 bg-light rounded-4 border h-100">
+          <div class="d-flex align-items-center gap-2 mb-2 text-primary">
+            <i class="bi bi-megaphone-fill fs-4"></i>
+            <h5 class="font-serif mb-0">Debating &amp; Model UN</h5>
+          </div>
+          <p class="small text-secondary mb-0">
+            Sharpening rhetoric, critical policy analysis, and persuasive parliamentary debate skills in both English and Kiswahili.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 bg-light rounded-4 border h-100">
+          <div class="d-flex align-items-center gap-2 mb-2 text-primary">
+            <i class="bi bi-music-note-beamed fs-4"></i>
+            <h5 class="font-serif mb-0">Music, Drama &amp; Choral</h5>
+          </div>
+          <p class="small text-secondary mb-0">
+            Showcasing theatrical pieces, choral hymns, traditional cultural dances, and competing in Kenya Music Festival.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 bg-light rounded-4 border h-100">
+          <div class="d-flex align-items-center gap-2 mb-2 text-primary">
+            <i class="bi bi-shield-fill fs-4"></i>
+            <h5 class="font-serif mb-0">Scouts &amp; St. John Ambulance</h5>
+          </div>
+          <p class="small text-secondary mb-0">
+            First aid training, outdoor survival camps, community service, discipline drill parades, and disaster readiness.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 bg-light rounded-4 border h-100">
+          <div class="d-flex align-items-center gap-2 mb-2 text-primary">
+            <i class="bi bi-heart-fill text-danger fs-4"></i>
+            <h5 class="font-serif mb-0">Christian Union &amp; YCS</h5>
+          </div>
+          <p class="small text-secondary mb-0">
+            Spiritual nourishment, weekly fellowship services, moral counseling, and inter-denominational community outreach.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 bg-light rounded-4 border h-100">
+          <div class="d-flex align-items-center gap-2 mb-2 text-primary">
+            <i class="bi bi-camera-reels-fill fs-4"></i>
+            <h5 class="font-serif mb-0">Journalism &amp; Media Club</h5>
+          </div>
+          <p class="small text-secondary mb-0">
+            Managing school news updates, campus photography, creative writing in the school magazine, and public address broadcasting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Boarding & Welfare -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="rounded-4 overflow-hidden shadow border">
+          <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop" 
+               alt="Boarding and Dining" class="img-fluid w-100 object-fit-cover" style="height: 380px;">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <span class="eyebrow-tag">Home Away from Home</span>
+        <h2 class="section-title">Boarding Life &amp; Student Welfare</h2>
+        <div class="section-divider start"></div>
+        <p>
+          Boarding at Kigumo Bendera High School is a positive, supportive experience where students learn self-reliance, time management, and communal living.
+        </p>
+        <ul class="list-unstyled d-flex flex-column gap-3 text-secondary small">
+          <li class="d-flex align-items-start gap-2">
+            <i class="bi bi-shield-check text-primary fs-5"></i>
+            <div><strong>House System:</strong> Scholars belong to distinct houses named after historic leaders and cultural virtues, fostering vibrant inter-house competitions and peer brotherhood.</div>
+          </li>
+          <li class="d-flex align-items-start gap-2">
+            <i class="bi bi-egg-fried text-warning fs-5"></i>
+            <div><strong>Nutritious Dining:</strong> Balanced, energy-rich meals prepared under strict hygienic kitchen standards to keep growing students healthy and alert.</div>
+          </li>
+          <li class="d-flex align-items-start gap-2">
+            <i class="bi bi-heart-pulse-fill text-danger fs-5"></i>
+            <div><strong>Health &amp; Sanatorium:</strong> A dedicated health clinic with registered nursing staff available around the clock.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
