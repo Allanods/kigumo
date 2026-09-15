@@ -9,5 +9,10 @@ services:
     envVars:
       - key: DJANGO_SECRET_KEY
         sync: false
+        value: placeholder-secret
       - key: DJANGO_ALLOWED_HOSTS
         sync: false
+        value: kigumoschoolweb.onrender.com
+      - key: DJANGO_DEBUG
+        sync: false
+        value: False
