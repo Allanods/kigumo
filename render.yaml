@@ -2,7 +2,7 @@ services:
   - type: web
     name: kigumo-django
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
     startCommand: gunicorn Schoolweb.wsgi:application
     autoDeploy: true
     branch: master
