@@ -1,0 +1,57 @@
+/* custom.css – visual enhancements and responsive tweaks */
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Override button hover to be smoother */
+.btn-kb-primary,
+.btn-kb-gold,
+.btn-kb-outline,
+.btn-kb-outline-light {
+    transition: var(--transition-fast);
+}
+
+/* Add extra spacing between sections on mobile */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 3rem 0;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .hero-home {
+        padding: 5rem 0 4rem;
+    }
+    .hero-headline {
+        font-size: 2.5rem;
+    }
+    .hero-subtext {
+        font-size: 1rem;
+    }
+    .navbar-nav .nav-link {
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+/* Slight shadow increase on cards for better depth */
+.kb-card {
+    box-shadow: var(--shadow-md);
+}
+.kb-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Make footer stick to bottom on short pages */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
+}
