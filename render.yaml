@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: kigumo-django
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn Schoolweb.wsgi:application
+    autoDeploy: true
+    branch: master
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        sync: false
+      - key: DJANGO_ALLOWED_HOSTS
+        sync: false
