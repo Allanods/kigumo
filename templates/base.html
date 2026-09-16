@@ -26,6 +26,8 @@
 </head>
 <body id="top">
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- Main Navigation -->
   {% include 'components/navbar.html' %}
 
@@ -49,7 +51,7 @@
   {% endif %}
 
   <!-- Main Page Content Block -->
-  <main>
+  <main id="main-content">
     {% block content %}{% endblock %}
   </main>
 

@@ -1,16 +1,17 @@
 {% load static %}
+{% with sp=school_profile %}
 <!-- Top Contact Bar -->
 <div class="top-bar d-none d-lg-block">
   <div class="container d-flex justify-content-between align-items-center">
     <div class="d-flex align-items-center gap-3">
-      <span><i class="bi bi-geo-alt-fill text-warning me-1"></i> Kigumo, Murang'a County, Kenya</span>
+      <span><i class="bi bi-geo-alt-fill text-warning me-1"></i> {{ sp.physical_address|default:"Kigumo, Murang'a County, Kenya" }}</span>
       <span class="divider">|</span>
-      <span><i class="bi bi-telephone-fill text-warning me-1"></i> <a href="tel:+254710336023" class="text-white text-decoration-none">0710336023</a></span>
+      <span><i class="bi bi-telephone-fill text-warning me-1"></i> <a href="tel:+254{{ sp.phone|default:'0710336023'|slice:'1:' }}" class="text-white text-decoration-none">{{ sp.phone|default:"0710336023" }}</a></span>
       <span class="divider">|</span>
-      <span><i class="bi bi-envelope-fill text-warning me-1"></i> <a href="mailto:kabiraallan79@gmail.com" class="text-white text-decoration-none">kabiraallan79@gmail.com</a></span>
+      <span><i class="bi bi-envelope-fill text-warning me-1"></i> <a href="mailto:{{ sp.email|default:'kabiraallan79@gmail.com' }}" class="text-white text-decoration-none">{{ sp.email|default:"kabiraallan79@gmail.com" }}</a></span>
     </div>
     <div class="d-flex align-items-center gap-2">
-      <span class="top-badge"><i class="bi bi-mortarboard-fill me-1"></i> Term 1 In Session</span>
+      <span class="top-badge"><i class="bi bi-mortarboard-fill me-1"></i> {{ sp.term_status|default:"Term 1 In Session" }}</span>
       <a href="{% url 'admissions' %}" class="fw-bold text-white ps-2"><i class="bi bi-file-earmark-check me-1"></i> Admission Guide</a>
       <span class="divider">|</span>
       <a href="{% url 'feedback' %}" class="text-white-50"><i class="bi bi-shield-lock me-1"></i> Grievance Portal</a>
@@ -126,9 +127,10 @@
         <i class="bi bi-send-check-fill me-1"></i> Apply for Admission
       </a>
       <div class="small text-muted">
-        <p class="mb-1"><i class="bi bi-geo-alt me-1 text-primary"></i> Kigumo, Murang'a County</p>
-        <p class="mb-0"><i class="bi bi-clock me-1 text-primary"></i> Mon - Fri: 8:00 AM - 5:00 PM</p>
+        <p class="mb-1"><i class="bi bi-geo-alt me-1 text-primary"></i> {{ sp.physical_address|default:"Kigumo, Murang'a County" }}</p>
+        <p class="mb-0"><i class="bi bi-clock me-1 text-primary"></i> {{ sp.office_hours|default:"Mon - Fri: 8:00 AM - 5:00 PM" }}</p>
       </div>
     </div>
   </div>
 </div>
+{% endwith %}

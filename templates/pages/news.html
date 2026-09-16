@@ -10,18 +10,17 @@
 <!-- 1. Featured Headline Banner -->
 <section class="section-padding-sm bg-white border-bottom">
   <div class="container">
+    {% if featured_news %}
     <div class="p-4 p-lg-5 rounded-4" style="background: linear-gradient(135deg, var(--kb-primary) 0%, var(--kb-primary-light) 100%); color: #FFFFFF; box-shadow: var(--shadow-md);">
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
           <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2 fw-bold text-uppercase">Featured Announcement</span>
-          <h2 class="font-serif text-white mb-2">School Term Opening &amp; Academic Re-Focus Guidelines</h2>
-          <p class="text-white-50 mb-3">
-            Important briefing for parents, guardians, and continuing students regarding reporting dates, revision materials, and termly academic clinics.
-          </p>
+          <h2 class="font-serif text-white mb-2">{{ featured_news.title }}</h2>
+          <p class="text-white-50 mb-3">{{ featured_news.summary }}</p>
           <div class="d-flex align-items-center gap-3 text-white-50 small">
-            <span><i class="bi bi-calendar3 me-1 text-warning"></i> Current Academic Calendar</span>
+            <span><i class="bi bi-calendar3 me-1 text-warning"></i> {{ featured_news.published_date|date:"M d, Y" }}</span>
             <span>&bull;</span>
-            <span><i class="bi bi-person me-1 text-warning"></i> Office of the Principal</span>
+            <span><i class="bi bi-person me-1 text-warning"></i> {{ featured_news.author }}</span>
           </div>
         </div>
         <div class="col-lg-4 text-lg-end">
@@ -31,6 +30,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
 </section>
 
@@ -50,12 +50,12 @@
           <div class="col-md-6">
             <article class="news-card">
               <div class="news-thumb-wrap">
-                <img src="{{ article.image_url }}" alt="{{ article.title }}">
-                <span class="news-badge">{{ article.category }}</span>
+                <img src="{{ article.display_image }}" alt="{{ article.title }}" loading="lazy">
+                {% if article.category %}<span class="news-badge">{{ article.category.name }}</span>{% endif %}
               </div>
               <div class="p-4 d-flex flex-column flex-grow-1">
                 <div class="news-date">
-                  <i class="bi bi-calendar3"></i> {{ article.date }}
+                  <i class="bi bi-calendar3"></i> {{ article.published_date|date:"M d, Y" }}
                 </div>
                 <h5 class="font-serif fs-5 mb-2">
                   <a href="#" class="text-primary">{{ article.title }}</a>
@@ -90,12 +90,12 @@
             {% for event in upcoming_events %}
             <div class="event-item-card">
               <div class="event-date-box">
-                <div class="event-date-day">{{ event.day }}</div>
-                <div class="event-date-month">{{ event.month }}</div>
+                <div class="event-date-day">{{ event.day_display }}</div>
+                <div class="event-date-month">{{ event.month_display }}</div>
               </div>
               <div>
                 <h6 class="font-serif text-primary mb-1">{{ event.title }}</h6>
-                <div class="small text-muted d-flex align-items-center gap-2">
+                <div class="small text-muted d-flex align-items-center gap-2 flex-wrap">
                   <span><i class="bi bi-geo-alt text-warning"></i> {{ event.venue }}</span>
                   <span>&bull;</span>
                   <span><i class="bi bi-clock"></i> {{ event.time }}</span>
@@ -115,6 +115,16 @@
             Download current term circulars, newsletters, and fee payment advisories released by the school administration.
           </p>
           <ul class="list-unstyled d-flex flex-column gap-2 small mb-4">
+            {% for circular in circulars %}
+            <li class="p-2 bg-light rounded border d-flex justify-content-between align-items-center gap-2 flex-wrap">
+              <span><i class="bi bi-file-pdf text-danger me-1"></i> {{ circular.title }}</span>
+              {% if circular.document %}
+              <a href="{{ circular.document.url }}" class="btn btn-sm btn-outline-primary py-0 px-2" download>Download</a>
+              {% else %}
+              <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-primary py-0 px-2">Request</a>
+              {% endif %}
+            </li>
+            {% empty %}
             <li class="p-2 bg-light rounded border d-flex justify-content-between align-items-center">
               <span><i class="bi bi-file-pdf text-danger me-1"></i> Term 1 Parent Circular.pdf</span>
               <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-primary py-0 px-2">Download</a>
@@ -127,6 +137,7 @@
               <span><i class="bi bi-file-pdf text-danger me-1"></i> School Rules &amp; Regulations.pdf</span>
               <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-primary py-0 px-2">Download</a>
             </li>
+            {% endfor %}
           </ul>
 
           <div class="p-3 rounded-3" style="background-color: var(--kb-gold-subtle); border: 1px dashed var(--kb-gold);">

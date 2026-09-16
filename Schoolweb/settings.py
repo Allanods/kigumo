@@ -12,19 +12,52 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 
 from pathlib import Path
 import os
+from urllib.parse import urlparse
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+# In production set DJANGO_SECRET_KEY via an environment variable (Render dashboard).
+# The local fallback below is for development only and must never be used in production.
+SECRET_KEY = os.getenv(
+    'DJANGO_SECRET_KEY',
+    'django-insecure-local-development-key-do-not-use-in-production'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
-# Hosts/domain names that are valid for this site
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(',')
+
+def _env_list(name, default=''):
+    """Read a comma-separated environment variable into a cleaned list."""
+    raw = os.getenv(name, '') or default
+    return [item.strip() for item in raw.split(',') if item.strip()]
+
+
+# Hosts/domain names that are valid for this site.
+# Render exposes the live service domain via RENDER_EXTERNAL_URL.
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'testserver',
+    '.onrender.com',
+] + _env_list('DJANGO_ALLOWED_HOSTS')
+
+_render_external_url = os.getenv('RENDER_EXTERNAL_URL', '').strip()
+if _render_external_url:
+    _render_hostname = urlparse(_render_external_url).hostname
+    if _render_hostname:
+        ALLOWED_HOSTS.append(_render_hostname)
+
+ALLOWED_HOSTS = list(dict.fromkeys(ALLOWED_HOSTS))
+
+# Trust the exact HTTPS origin of the deployed site for CSRF protection.
+CSRF_TRUSTED_ORIGINS = _env_list('DJANGO_CSRF_TRUSTED_ORIGINS')
+if not DEBUG and _render_external_url:
+    CSRF_TRUSTED_ORIGINS.append(_render_external_url)
+    CSRF_TRUSTED_ORIGINS = list(dict.fromkeys(CSRF_TRUSTED_ORIGINS))
 
 
 # Application definition
@@ -50,8 +83,28 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Static files storage using WhiteNoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# Static files storage using WhiteNoise (cached + compressed) for production.
+# The Django settings module configures the default/filesystem backend for
+# user-uploaded media and the compressed staticfiles backend for static assets.
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+    },
+}
+
+# Production security hardening (Render terminates TLS and forwards the scheme).
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SECURE_HSTS_SECONDS = 31536000 if not DEBUG else 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = not DEBUG
+SECURE_HSTS_PRELOAD = not DEBUG
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
 
 ROOT_URLCONF = 'Schoolweb.urls'
 
@@ -76,9 +129,13 @@ WSGI_APPLICATION = 'Schoolweb.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
-
+#
+# Production: Render injects DATABASE_URL when a PostgreSQL database is
+# attached to the service, so persistent contact/feedback records survive
+# redeploys and free-plan spin-downs.
+# Local / fallback: SQLite relative to the project root (no extra services).
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:////tmp/db.sqlite3')
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
 
 
@@ -106,7 +163,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -122,7 +179,11 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-CSRF_TRUSTED_ORIGINS = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',') if os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS') else []
+# User-uploaded media (photos, circulars) - served by Django in DEBUG only.
+# On Render, media uploads should be stored in a persistent service; the
+# admin forms remain fully functional with local storage in the meantime.
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email configuration – defaults to console backend for development
 if os.getenv('DJANGO_EMAIL_HOST'):
@@ -134,5 +195,3 @@ if os.getenv('DJANGO_EMAIL_HOST'):
     EMAIL_USE_TLS = os.getenv('DJANGO_EMAIL_USE_TLS', 'True') == 'True'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# Remove old MAILERS dict – not needed for production

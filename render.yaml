@@ -1,18 +1,41 @@
+# Render Blueprint configuration for Kigumo Bendera High School (FREE plan)
+# Deployed via the git repository: https://github.com/Allanods/kigumo
 services:
   - type: web
-    name: kigumo-django
-    env: python
-    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
-    startCommand: gunicorn Schoolweb.wsgi:application
-    autoDeploy: true
+    name: kigumo-bendera-high-school
+    runtime: python
+    plan: free
+    rootDir: .
     branch: master
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate --noinput
+    startCommand: gunicorn Schoolweb.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    healthCheckPath: /
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
       - key: DJANGO_SECRET_KEY
-        sync: false
-        value: placeholder-secret
-      - key: DJANGO_ALLOWED_HOSTS
-        sync: false
-        value: kigumoschoolweb.onrender.com
+        generateValue: true
       - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: kigumo-bendera-high-school.onrender.com
+      - key: DJANGO_CSRF_TRUSTED_ORIGINS
+        value: https://kigumo-bendera-high-school.onrender.com
+      - key: DJANGO_EMAIL_HOST
         sync: false
-        value: False
+      - key: DJANGO_EMAIL_PORT
+        sync: false
+      - key: DJANGO_EMAIL_HOST_USER
+        sync: false
+      - key: DJANGO_EMAIL_HOST_PASSWORD
+        sync: false
+      - key: DJANGO_EMAIL_USE_TLS
+        sync: false
+
+# Persistent PostgreSQL (free tier) so contact/feedback records survive
+# redeploys and free-plan spin-down. Render auto-injects DATABASE_URL.
+databases:
+  - name: kigumo-bendera-postgres
+    plan: free
+    databaseName: kigumo_bendera

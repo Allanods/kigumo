@@ -1,7 +1,15 @@
-from django.test import TestCase, Client
+from django.test import TestCase, Client, override_settings
 from django.urls import reverse
 
 
+@override_settings(
+    SECURE_SSL_REDIRECT=False,
+    SECURE_HSTS_SECONDS=0,
+    SECURE_HSTS_INCLUDE_SUBDOMAINS=False,
+    SECURE_HSTS_PRELOAD=False,
+    SESSION_COOKIE_SECURE=False,
+    CSRF_COOKIE_SECURE=False,
+)
 class SchoolWebPagesTest(TestCase):
     def setUp(self):
         self.client = Client()
@@ -50,4 +58,5 @@ class SchoolWebPagesTest(TestCase):
             'desired_outcome': 'Keep up the great program.',
         }, follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Your submission under')
+        self.assertContains(response, 'has been safely registered under reference code')
+        self.assertContains(response, 'School Grievance Committee')

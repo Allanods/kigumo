@@ -1158,3 +1158,215 @@ p {
     padding: 1.5rem 1rem;
   }
 }
+
+/* ==========================================================================
+   KIGUMO BENDERA – RESPONSIVE & ACCESSIBILITY ENHANCEMENTS (v2)
+   ========================================================================== */
+
+/* Guard against accidental horizontal overflow everywhere */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible, consistent keyboard focus states */
+:focus-visible {
+  outline: 3px solid var(--kb-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip link for keyboard / screen-reader users */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 2000;
+  background: var(--kb-primary);
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 var(--radius-md) 0;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+  color: #FFFFFF;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Anchored sections clear the sticky navbar */
+[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Fluid typography - scales smoothly across viewports */
+.hero-headline {
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+}
+
+.subpage-hero h1 {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+}
+
+.section-title {
+  font-size: clamp(1.7rem, 3.4vw, 2.25rem);
+}
+
+.stat-number {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+
+.footer-motto {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--kb-gold-light);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION (OFFCANVAS) POLISH
+   ========================================================================== */
+#mobileNavOffcanvas {
+  width: 300px;
+  max-width: 85vw;
+}
+
+#mobileNavOffcanvas .offcanvas-body .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--kb-primary) !important;
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+#mobileNavOffcanvas .offcanvas-body .nav-link i {
+  width: 26px;
+  text-align: center;
+  color: var(--kb-gold-dark);
+}
+
+#mobileNavOffcanvas .offcanvas-body .nav-link:hover,
+#mobileNavOffcanvas .offcanvas-body .nav-link.active {
+  background-color: var(--kb-gold-subtle);
+  color: var(--kb-gold-dark) !important;
+}
+
+/* Larger tap target on touch devices while keeping desktop spacing tidy */
+@media (hover: none) {
+  .nav-link {
+    padding: 0.65rem 0.85rem !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE CARD & GRID REFINEMENTS
+   ========================================================================== */
+.gallery-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+}
+
+.gallery-item {
+  height: min(280px, 62vw);
+}
+
+.news-thumb-wrap {
+  height: min(220px, 52vw);
+}
+
+/* Buttons should never become unreasonably wide on small screens */
+.btn-lg {
+  white-space: normal;
+}
+
+/* Event cards keep readable on narrow screens */
+.event-item-card {
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   EXTRA RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hero-home {
+    padding: 4rem 0 3.5rem;
+  }
+
+  .cta-banner h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Very small phones (<= 360px) */
+@media (max-width: 360px) {
+  .hero-headline {
+    font-size: 1.7rem;
+  }
+
+  .hero-stats-row .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .subpage-hero {
+    padding: 3.25rem 0 2.75rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .btn-lg {
+    font-size: 0.95rem;
+    padding: 0.55rem 1.1rem;
+  }
+}
+
+/* Large desktop spacing refinement */
+@media (min-width: 1400px) {
+  .section-padding {
+    padding: 6rem 0;
+  }
+
+  .hero-home {
+    padding: 7.5rem 0 6rem;
+  }
+}
+
+/* Nicer focus ring for the mobile toggler */
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.4);
+}
+
+/* Ensure form rows never overflow on tiny screens */
+@media (max-width: 575.98px) {
+  .kb-form-card .row > [class*="col-"] {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

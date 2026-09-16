@@ -1,4 +1,5 @@
 {% load static %}
+{% with sp=school_profile %}
 <footer class="site-footer">
   <div class="container">
     <div class="row g-4">
@@ -7,22 +8,22 @@
         <div class="d-flex align-items-center gap-3 mb-3">
           <img src="{% static 'images/logo.svg' %}" alt="Kigumo Bendera Crest" width="56" height="56">
           <div>
-            <h5 class="footer-brand-title mb-0">KIGUMO BENDERA</h5>
+            <h5 class="footer-brand-title mb-0">{{ sp.school_name|default:"KIGUMO BENDERA" }}</h5>
             <small class="text-warning text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.1em;">High School &bull; Murang'a</small>
           </div>
         </div>
         <p class="footer-desc">
-          A premier government-aided secondary boarding school dedicated to nurturing young minds into intellectual giants, disciplined leaders, and ethically grounded global citizens.
+          {{ sp.about_short|default:"A premier government-aided secondary boarding school dedicated to nurturing young minds into intellectual giants, disciplined leaders, and ethically grounded global citizens." }}
         </p>
         <div class="mb-3">
           <span class="text-white-50 small d-block mb-1">Official Motto:</span>
-          <span class="editable-badge"><i class="bi bi-pencil-square"></i> [School Motto: "Strive for Excellence"]</span>
+          <span class="footer-motto"><i class="bi bi-pencil-square"></i> {{ sp.motto|default:'"Strive for Excellence"' }}</span>
         </div>
         <div class="social-links-row">
-          <a href="#" class="social-icon-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="social-icon-btn" title="X / Twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="social-icon-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
-          <a href="#" class="social-icon-btn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="{{ sp.facebook_url|default:'#' }}" class="social-icon-btn" title="Facebook" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+          <a href="{{ sp.twitter_url|default:'#' }}" class="social-icon-btn" title="X / Twitter" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+          <a href="{{ sp.youtube_url|default:'#' }}" class="social-icon-btn" title="YouTube" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
+          <a href="{{ sp.linkedin_url|default:'#' }}" class="social-icon-btn" title="LinkedIn" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
 
@@ -59,28 +60,28 @@
           <i class="bi bi-geo-alt-fill"></i>
           <div>
             <strong class="text-white d-block">Location</strong>
-            <span>Kigumo Sub-County, Murang'a County, Kenya</span>
+            <span>{{ sp.physical_address|default:"Kigumo Sub-County, Murang'a County, Kenya" }}</span>
           </div>
         </div>
         <div class="footer-contact-item">
           <i class="bi bi-mailbox2"></i>
           <div>
             <strong class="text-white d-block">Postal Address</strong>
-            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [P.O. Box ... Kigumo, Kenya]</span>
+            <span>{{ sp.postal_address|default:"P.O. Box ... Kigumo, Kenya" }}</span>
           </div>
         </div>
         <div class="footer-contact-item">
           <i class="bi bi-telephone-fill"></i>
           <div>
             <strong class="text-white d-block">Telephone</strong>
-            <a href="tel:+254710336023" class="text-white-50 text-decoration-none">0710336023</a>
+            <a href="tel:+254{{ sp.phone|default:'0710336023'|slice:'1:' }}" class="text-white-50 text-decoration-none">{{ sp.phone|default:"0710336023" }}</a>
           </div>
         </div>
         <div class="footer-contact-item">
           <i class="bi bi-envelope-fill"></i>
           <div>
             <strong class="text-white d-block">Email</strong>
-            <a href="mailto:kabiraallan79@gmail.com" class="text-white-50 text-decoration-none">kabiraallan79@gmail.com</a>
+            <a href="mailto:{{ sp.email|default:'kabiraallan79@gmail.com' }}" class="text-white-50 text-decoration-none">{{ sp.email|default:"kabiraallan79@gmail.com" }}</a>
           </div>
         </div>
       </div>
@@ -89,9 +90,9 @@
     <!-- Bottom Bar -->
     <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
       <div>
-        &copy; {% now "Y" %} <strong>Kigumo Bendera High School</strong>. All Rights Reserved.
+        &copy; {% now "Y" %} <strong>{{ sp.school_name|default:"Kigumo Bendera High School" }}</strong>. All Rights Reserved.
       </div>
-      <div class="d-flex gap-3 small">
+      <div class="d-flex gap-3 small flex-wrap justify-content-center">
         <a href="{% url 'feedback' %}" class="text-white-50">Confidential Grievance Portal</a>
         <span class="text-white-25">&bull;</span>
         <a href="{% url 'admissions' %}" class="text-white-50">Admissions Policy</a>
@@ -101,6 +102,7 @@
     </div>
   </div>
 </footer>
+{% endwith %}
 
 <!-- Floating Back-to-Top Button -->
 <a href="#top" class="back-to-top-btn" title="Back to top" aria-label="Scroll to top">

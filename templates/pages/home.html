@@ -10,14 +10,13 @@
     <div class="row align-items-center">
       <div class="col-lg-8">
         <div class="hero-badge">
-          <i class="bi bi-award-fill text-warning"></i> Premier Center of Academic &amp; Moral Excellence
+          <i class="bi bi-award-fill text-warning"></i> {{ profile.hero_badge|default:"Premier Center of Academic &amp; Moral Excellence" }}
         </div>
         <h1 class="hero-headline">
-          KIGUMO BENDERA <br>
-          <span class="highlight">HIGH SCHOOL</span>
+          {{ profile.hero_headline|default:"KIGUMO BENDERA" }}
         </h1>
         <p class="hero-subtext">
-          "Shaping Minds. Building Character. Inspiring Excellence." A premier secondary boarding school in Murang'a County dedicated to transformative education and exemplary leadership.
+          {{ profile.hero_subtext|default:'"Shaping Minds. Building Character. Inspiring Excellence." A premier secondary boarding school in Murang\'a County dedicated to transformative education and exemplary leadership.' }}
         </p>
         <div class="d-flex flex-wrap gap-3 mt-4">
           <a href="{% url 'admissions' %}" class="btn btn-kb-gold btn-lg">
@@ -36,10 +35,10 @@
           <img src="{% static 'images/logo.svg' %}" alt="School Crest" style="width: 170px; height: 170px; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));">
           <div class="mt-3">
             <h6 class="text-white font-serif mb-1">Official School Motto</h6>
-            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [School Motto: "Strive for Excellence"]</span>
+            <span class="editable-badge"><i class="bi bi-pencil-square"></i> {{ profile.motto|default:'"Strive for Excellence"' }}</span>
           </div>
           <div class="mt-3 pt-3 border-top border-secondary">
-            <span class="text-warning small text-uppercase fw-bold"><i class="bi bi-clock-history me-1"></i> Admissions Now Open</span>
+            <span class="text-warning small text-uppercase fw-bold"><i class="bi bi-clock-history me-1"></i> {{ profile.term_status|default:"Term 1 In Session" }}</span>
           </div>
         </div>
       </div>
@@ -49,25 +48,25 @@
     <div class="row hero-stats-row g-4">
       <div class="col-6 col-md-3">
         <div class="stat-item">
-          <div class="stat-number">1,200+</div>
+          <div class="stat-number">{{ profile.stat_students|default:"1,200+" }}</div>
           <div class="stat-label">Enrolled Scholars</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
         <div class="stat-item">
-          <div class="stat-number">45+</div>
+          <div class="stat-number">{{ profile.stat_teachers|default:"45+" }}</div>
           <div class="stat-label">Experienced Tutors</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
         <div class="stat-item">
-          <div class="stat-number">100%</div>
+          <div class="stat-number">{{ profile.stat_university|default:"100%" }}</div>
           <div class="stat-label">University Preparation</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
         <div class="stat-item">
-          <div class="stat-number">28+</div>
+          <div class="stat-number">{{ profile.stat_clubs_sports|default:"28+" }}</div>
           <div class="stat-label">Clubs &amp; Sports Disciplines</div>
         </div>
       </div>
@@ -87,7 +86,7 @@
           </div>
           <div class="position-absolute bottom-0 end-0 bg-white p-3 rounded-3 shadow-sm border mb-3 me-3 text-center" style="max-width: 220px;">
             <span class="text-primary fw-bold d-block small">Office of the Principal</span>
-            <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Principal's Name]</span>
+            <span class="d-block small text-secondary">{{ profile.principal_name|default:"Chief Principal" }}</span>
           </div>
         </div>
       </div>
@@ -97,22 +96,22 @@
         <div class="section-divider start"></div>
         
         <p class="lead text-primary fw-semibold mb-3">
-          "At Kigumo Bendera High School, we believe that education is not merely the transmission of facts, but the ignition of intellect and the steadfast cultivation of character."
+          "{{ profile.principal_quote|default:'At Kigumo Bendera High School, we believe that education is not merely the transmission of facts, but the ignition of intellect and the steadfast cultivation of character.' }}"
         </p>
         
         <p class="text-secondary">
-          Welcome to Kigumo Bendera High School. For years, our institution has stood as a beacon of academic rigor, self-discipline, and holistic transformation in Murang'a County. Our students are challenged in state-of-the-art laboratories, mentored by passionate faculty, and empowered through rich sporting and co-curricular programs.
+          {{ profile.principal_desk_note|default:"Welcome to Kigumo Bendera High School. For years, our institution has stood as a beacon of academic rigor, self-discipline, and holistic transformation in Murang'a County. Our students are challenged in state-of-the-art laboratories, mentored by passionate faculty, and empowered through rich sporting and co-curricular programs." }}
         </p>
 
         <div class="p-3 my-3 rounded-3" style="background-color: var(--kb-gold-subtle); border-left: 4px solid var(--kb-gold);">
           <strong class="text-dark d-block mb-1"><i class="bi bi-chat-quote-fill text-warning me-2"></i> Principal's Desk Note:</strong>
-          <span class="editable-badge"><i class="bi bi-pencil-square"></i> [Editable placeholder: Insert official welcoming remarks from the Chief Principal or Headteacher here]</span>
+          <span>{{ profile.principal_desk_note|default:"Welcome to Kigumo Bendera High School. For years, our institution has stood as a beacon of academic rigor, self-discipline, and holistic transformation in Murang'a County. Our students are challenged in state-of-the-art laboratories, mentored by passionate faculty, and empowered through rich sporting and co-curricular programs." }}</span>
         </div>
 
         <div class="d-flex align-items-center gap-4 mt-4 pt-2">
           <div>
-            <h6 class="mb-0 font-serif fw-bold text-primary">Chief Principal</h6>
-            <small class="text-muted">Kigumo Bendera High School</small>
+            <h6 class="mb-0 font-serif fw-bold text-primary">{{ profile.principal_name|default:"Chief Principal" }}</h6>
+            <small class="text-muted">{{ profile.principal_title|default:"Chief Principal" }}, Kigumo Bendera High School</small>
           </div>
           <div class="border-start ps-4">
             <a href="{% url 'about' %}" class="btn btn-kb-outline">
@@ -288,6 +287,32 @@
       </div>
     </div>
 
+    {% if recent_news %}
+    <div class="row g-4">
+      {% for article in recent_news %}
+      <div class="col-lg-4 col-md-6">
+        <article class="news-card">
+          <div class="news-thumb-wrap">
+            <img src="{{ article.display_image }}" alt="{{ article.title }}" loading="lazy">
+            {% if article.category %}<span class="news-badge">{{ article.category.name }}</span>{% endif %}
+          </div>
+          <div class="p-4 d-flex flex-column flex-grow-1">
+            <div class="news-date">
+              <i class="bi bi-calendar3"></i> {{ article.published_date|date:"M d, Y" }}
+            </div>
+            <h5 class="font-serif fs-5 mb-2">
+              <a href="{% url 'news' %}" class="text-primary">{{ article.title }}</a>
+            </h5>
+            <p class="small text-secondary mb-3">
+              {{ article.summary|truncatechars:130 }}
+            </p>
+            <a href="{% url 'news' %}" class="fw-bold small text-primary mt-auto">Read More &rarr;</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
     <div class="row g-4">
       <!-- Article 1 -->
       <div class="col-lg-4 col-md-6">
@@ -355,6 +380,7 @@
         </article>
       </div>
     </div>
+    {% endif %}
   </div>
 </section>
 
