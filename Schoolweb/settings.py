@@ -173,7 +173,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
@@ -182,8 +182,41 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # User-uploaded media (photos, circulars) - served by Django in DEBUG only.
 # On Render, media uploads should be stored in a persistent service; the
 # admin forms remain fully functional with local storage in the meantime.
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Default primary key field type (BigAutoField)
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Logging: route application errors to stdout/stderr so they appear in the
+# Render service logs (and the local console during development).
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[{asctime}] {levelname} {name} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR' if not DEBUG else 'INFO',
+            'propagate': False,
+        },
+    },
+}
 
 # Email configuration – defaults to console backend for development
 if os.getenv('DJANGO_EMAIL_HOST'):

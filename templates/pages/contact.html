@@ -44,7 +44,7 @@
             <div>
               <h6 class="font-serif text-primary mb-1">Telephone Contacts</h6>
               <div class="d-flex flex-column gap-1">
-                <a href="tel:+254710336023" class="text-secondary text-decoration-none">0710336023</a>
+                <a href="tel:+254{{ profile.phone|default:'0710336023'|slice:'1:' }}" class="text-secondary text-decoration-none">{{ profile.phone|default:"0710336023" }}</a>
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
             <div>
               <h6 class="font-serif text-primary mb-1">Official Emails</h6>
               <div class="d-flex flex-column gap-1">
-                <a href="mailto:kabiraallan79@gmail.com" class="text-secondary text-decoration-none">kabiraallan79@gmail.com</a>
+                <a href="mailto:{{ profile.email|default:'kabiraallan79@gmail.com' }}" class="text-secondary text-decoration-none">{{ profile.email|default:"kabiraallan79@gmail.com" }}</a>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@
             <div>
               <h6 class="font-serif text-primary mb-1">Office Hours</h6>
               <p class="small text-secondary mb-0">
-                <strong>Monday &ndash; Friday:</strong> 8:00 AM &ndash; 5:00 PM<br>
+                <strong>Monday &ndash; Friday:</strong> {{ profile.office_hours|default:"8:00 AM &ndash; 5:00 PM" }}<br>
                 <strong>Parent Visiting Days:</strong> As designated in term circular
               </p>
             </div>

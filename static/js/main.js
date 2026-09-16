@@ -129,4 +129,26 @@ document.addEventListener('DOMContentLoaded', function () {
       refCodeContainer.classList.remove('d-none');
     });
   }
+
+  // 8. Reveal-on-scroll (progressive enhancement; skipped for reduced motion)
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion || revealEls.length === 0) {
+      revealEls.forEach(el => el.classList.add('visible'));
+    } else {
+      const revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(el => revealObserver.observe(el));
+    }
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
 });

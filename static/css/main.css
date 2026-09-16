@@ -2,7 +2,7 @@
    KIGUMO BENDERA HIGH SCHOOL - MAIN DESIGN SYSTEM
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+/* Google Fonts are preloaded in base.html (link + preconnect) for performance. */
 
 :root {
   /* Brand Colors */
@@ -1368,5 +1368,262 @@ body {
   .kb-form-card .row > [class*="col-"] {
     padding-left: 12px;
     padding-right: 12px;
+  }
+}
+
+/* ==========================================================================
+   KIGUMO BENDERA – v3 PROFESSIONAL POLISH & MOBILE-FIRST REFINEMENT
+   ========================================================================== */
+
+/* Brand text selection */
+::selection {
+  background: var(--kb-gold);
+  color: var(--kb-primary-dark);
+}
+
+/* Long unbreakable content must never cause horizontal scroll */
+a, p, span, small, h1, h2, h3, h4, h5, h6, li, td, th {
+  overflow-wrap: anywhere;
+}
+a[href^="mailto:"], a[href^="tel:"] {
+  word-break: break-word;
+}
+
+/* Editable placeholder badges wrap instead of overflowing */
+.editable-badge {
+  white-space: normal;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+/* Reveal-on-scroll (progressive enhancement; only active when JS is enabled,
+   so content is never hidden if scripts fail to load) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.js .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+.js .reveal.delay-1 { transition-delay: 0.08s; }
+.js .reveal.delay-2 { transition-delay: 0.16s; }
+.js .reveal.delay-3 { transition-delay: 0.24s; }
+.js .reveal.delay-4 { transition-delay: 0.32s; }
+
+/* Navbar mobile refinements */
+.navbar-toggler {
+  margin-left: auto;
+}
+.navbar-toggler .bi {
+  transition: transform 0.3s ease;
+}
+.navbar-toggler[aria-expanded="true"] .bi {
+  transform: rotate(90deg);
+}
+
+/* Offcanvas polish: consistent spacing + contacts */
+#mobileNavOffcanvas .offcanvas-header {
+  padding: 1rem 1.25rem;
+}
+#mobileNavOffcanvas .offcanvas-body {
+  padding: 1.5rem 1.25rem;
+}
+#mobileNavOffcanvas .offcanvas-body .nav-link {
+  border-radius: var(--radius-md);
+}
+
+/* Hero: intentionally mobile-first */
+.hero-home {
+  padding: 4.5rem 0 4rem;
+}
+@media (min-width: 992px) {
+  .hero-home {
+    padding: 6.5rem 0 5.5rem;
+  }
+}
+.hero-badge {
+  max-width: 100%;
+  flex-wrap: wrap;
+  line-height: 1.4;
+}
+.hero-headline {
+  line-height: 1.12;
+  text-wrap: balance;
+}
+.hero-subtext {
+  max-width: 580px;
+  text-wrap: pretty;
+}
+
+@media (max-width: 575.98px) {
+  .hero-home {
+    padding: 3.75rem 0 3.25rem;
+  }
+  .hero-home .hero-buttons {
+    width: 100%;
+  }
+  .hero-home .hero-buttons .btn-lg {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-stat {
+    padding: 0.9rem 0.5rem;
+  }
+  .hero-stats-row {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+}
+
+/* Stats row on phones: comfortable 2-col grid */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hero-stats-row .stat-item {
+    text-align: center;
+  }
+}
+
+/* Subpage hero: refined spacing across breakpoints */
+.subpage-hero {
+  padding: 3.75rem 0 3rem;
+}
+@media (min-width: 992px) {
+  .subpage-hero {
+    padding: 4.75rem 0 3.75rem;
+  }
+}
+@media (max-width: 360px) {
+  .subpage-hero h1 {
+    font-size: 1.65rem;
+  }
+}
+.breadcrumb-kb {
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* Section rhythm */
+.section-title-wrap {
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 992px) {
+  .section-title-wrap {
+    margin-bottom: 3.5rem;
+  }
+}
+
+/* Card improvements */
+.kb-card {
+  padding: 1.5rem;
+}
+@media (min-width: 768px) {
+  .kb-card {
+    padding: 2rem;
+  }
+}
+.kb-card .mt-auto a,
+.kb-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* CTA banner: stack & full-width actions on small screens */
+@media (max-width: 575.98px) {
+  .cta-banner {
+    padding: 2.25rem 1.5rem;
+    text-align: center;
+  }
+  .cta-banner .btn {
+    width: 100%;
+    justify-content: center;
+    margin: 0.5rem 0 0 !important;
+  }
+}
+
+/* Admissions checklist rows wrap gracefully */
+@media (max-width: 575.98px) {
+  .admissions-checklist li {
+    flex-wrap: wrap;
+  }
+}
+
+/* Event cards read well on narrow screens */
+.event-item-card {
+  gap: 0.9rem;
+}
+
+/* Forms: comfortable on phones */
+.form-control,
+.form-select {
+  font-size: 1rem; /* prevents iOS auto-zoom on focus */
+}
+.kb-form-card {
+  padding: 1.75rem 1.25rem;
+}
+@media (min-width: 768px) {
+  .kb-form-card {
+    padding: 2.5rem;
+  }
+}
+
+/* Accent gradient underline for key links/cards */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: var(--transition-fast);
+}
+.link-arrow:hover {
+  gap: 0.6rem;
+}
+
+/* Back-to-top repositioning on small screens */
+.back-to-top-btn {
+  bottom: 1.25rem;
+  right: 1.25rem;
+  width: 42px;
+  height: 42px;
+}
+
+/* Fine-tune very small phones (<= 380px) */
+@media (max-width: 380px) {
+  .brand-title {
+    font-size: 0.95rem;
+  }
+  .brand-subtitle {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+  .brand-logo-img {
+    width: 40px;
+    height: 40px;
+  }
+  .footer-contact-item {
+    gap: 0.6rem;
+  }
+  .section-title {
+    font-size: 1.55rem;
+  }
+  .news-card .p-4 {
+    padding: 1.25rem;
+  }
+}
+
+/* Landscape phones keep the hero compact */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero-home {
+    padding: 2.5rem 0;
+  }
+  .hero-stats-row {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
   }
 }

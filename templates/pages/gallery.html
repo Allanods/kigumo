@@ -35,7 +35,7 @@
     <!-- Gallery Grid -->
     <div class="gallery-grid">
       {% for item in gallery_items %}
-      <div class="gallery-item-wrapper" data-category="{{ item.category.code }}">
+      <div class="gallery-item-wrapper reveal" data-category="{{ item.category.code }}">
         <div class="gallery-item">
           <img src="{{ item.display_image }}" alt="{{ item.title }}" loading="lazy">
           <div class="gallery-overlay">

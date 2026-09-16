@@ -18,7 +18,7 @@
         <p class="hero-subtext">
           {{ profile.hero_subtext|default:'"Shaping Minds. Building Character. Inspiring Excellence." A premier secondary boarding school in Murang\'a County dedicated to transformative education and exemplary leadership.' }}
         </p>
-        <div class="d-flex flex-wrap gap-3 mt-4">
+        <div class="d-flex flex-wrap gap-3 mt-4 hero-buttons">
           <a href="{% url 'admissions' %}" class="btn btn-kb-gold btn-lg">
             <i class="bi bi-file-earmark-check-fill me-2"></i> Admissions &amp; Intake
           </a>
@@ -82,7 +82,7 @@
         <div class="position-relative">
           <div class="rounded-4 overflow-hidden shadow-lg border" style="max-height: 480px;">
             <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" 
-                 alt="Principal Welcome" class="img-fluid w-100 object-fit-cover" style="height: 460px;">
+                 alt="Principal Welcome" class="img-fluid w-100 object-fit-cover" loading="lazy" style="height: 460px;">
           </div>
           <div class="position-absolute bottom-0 end-0 bg-white p-3 rounded-3 shadow-sm border mb-3 me-3 text-center" style="max-width: 220px;">
             <span class="text-primary fw-bold d-block small">Office of the Principal</span>
@@ -103,9 +103,31 @@
           {{ profile.principal_desk_note|default:"Welcome to Kigumo Bendera High School. For years, our institution has stood as a beacon of academic rigor, self-discipline, and holistic transformation in Murang'a County. Our students are challenged in state-of-the-art laboratories, mentored by passionate faculty, and empowered through rich sporting and co-curricular programs." }}
         </p>
 
-        <div class="p-3 my-3 rounded-3" style="background-color: var(--kb-gold-subtle); border-left: 4px solid var(--kb-gold);">
-          <strong class="text-dark d-block mb-1"><i class="bi bi-chat-quote-fill text-warning me-2"></i> Principal's Desk Note:</strong>
-          <span>{{ profile.principal_desk_note|default:"Welcome to Kigumo Bendera High School. For years, our institution has stood as a beacon of academic rigor, self-discipline, and holistic transformation in Murang'a County. Our students are challenged in state-of-the-art laboratories, mentored by passionate faculty, and empowered through rich sporting and co-curricular programs." }}</span>
+        <div class="row g-2 my-3">
+          <div class="col-6 col-md-3">
+            <div class="p-2 text-center border rounded-3" style="background-color: var(--kb-gold-subtle);">
+              <i class="bi bi-patch-check-fill text-primary"></i>
+              <small class="d-block fw-bold text-dark">Government Aided</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="p-2 text-center border rounded-3" style="background-color: var(--kb-gold-subtle);">
+              <i class="bi bi-house-heart-fill text-success"></i>
+              <small class="d-block fw-bold text-dark">Full Boarding</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="p-2 text-center border rounded-3" style="background-color: var(--kb-gold-subtle);">
+              <i class="bi bi-geo-alt-fill text-warning"></i>
+              <small class="d-block fw-bold text-dark">Murang'a County</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="p-2 text-center border rounded-3" style="background-color: var(--kb-gold-subtle);">
+              <i class="bi bi-mortarboard-fill text-danger"></i>
+              <small class="d-block fw-bold text-dark">KCSE &amp; CBC Ready</small>
+            </div>
+          </div>
         </div>
 
         <div class="d-flex align-items-center gap-4 mt-4 pt-2">
@@ -139,7 +161,7 @@
     <div class="row g-4">
       <!-- Pillar 1 -->
       <div class="col-lg-3 col-md-6">
-        <div class="kb-card pillar-card">
+        <div class="kb-card pillar-card reveal">
           <div class="pillar-icon-box">
             <i class="bi bi-mortarboard-fill"></i>
           </div>
@@ -153,7 +175,7 @@
 
       <!-- Pillar 2 -->
       <div class="col-lg-3 col-md-6">
-        <div class="kb-card pillar-card">
+        <div class="kb-card pillar-card reveal delay-1">
           <div class="pillar-icon-box">
             <i class="bi bi-shield-check"></i>
           </div>
@@ -167,7 +189,7 @@
 
       <!-- Pillar 3 -->
       <div class="col-lg-3 col-md-6">
-        <div class="kb-card pillar-card">
+        <div class="kb-card pillar-card reveal delay-2">
           <div class="pillar-icon-box">
             <i class="bi bi-cpu-fill"></i>
           </div>
@@ -181,7 +203,7 @@
 
       <!-- Pillar 4 -->
       <div class="col-lg-3 col-md-6">
-        <div class="kb-card pillar-card">
+        <div class="kb-card pillar-card reveal delay-3">
           <div class="pillar-icon-box">
             <i class="bi bi-dribbble"></i>
           </div>
@@ -214,7 +236,7 @@
     <div class="row g-4">
       <!-- Science & STEM -->
       <div class="col-lg-4 col-md-6">
-        <div class="kb-card">
+        <div class="kb-card reveal">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-3 fs-3">
               <i class="bi bi-virus"></i>
@@ -233,7 +255,7 @@
 
       <!-- Mathematics & Computing -->
       <div class="col-lg-4 col-md-6">
-        <div class="kb-card">
+        <div class="kb-card reveal delay-1">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="p-3 bg-warning bg-opacity-10 text-warning rounded-3 fs-3">
               <i class="bi bi-calculator-fill"></i>
@@ -252,7 +274,7 @@
 
       <!-- Languages & Humanities -->
       <div class="col-lg-4 col-md-6">
-        <div class="kb-card">
+        <div class="kb-card reveal delay-2">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="p-3 bg-success bg-opacity-10 text-success rounded-3 fs-3">
               <i class="bi bi-book-half"></i>
@@ -291,7 +313,7 @@
     <div class="row g-4">
       {% for article in recent_news %}
       <div class="col-lg-4 col-md-6">
-        <article class="news-card">
+        <article class="news-card reveal">
           <div class="news-thumb-wrap">
             <img src="{{ article.display_image }}" alt="{{ article.title }}" loading="lazy">
             {% if article.category %}<span class="news-badge">{{ article.category.name }}</span>{% endif %}
@@ -316,9 +338,9 @@
     <div class="row g-4">
       <!-- Article 1 -->
       <div class="col-lg-4 col-md-6">
-        <article class="news-card">
+        <article class="news-card reveal">
           <div class="news-thumb-wrap">
-            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=700&auto=format&fit=crop" alt="Academic Term Launch">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=700&auto=format&fit=crop" alt="Academic Term Launch" loading="lazy">
             <span class="news-badge">Academic</span>
           </div>
           <div class="p-4 d-flex flex-column flex-grow-1">
@@ -338,9 +360,9 @@
 
       <!-- Article 2 -->
       <div class="col-lg-4 col-md-6">
-        <article class="news-card">
+        <article class="news-card reveal delay-1">
           <div class="news-thumb-wrap">
-            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=700&auto=format&fit=crop" alt="Sports Victory">
+            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=700&auto=format&fit=crop" alt="Sports Victory" loading="lazy">
             <span class="news-badge" style="background-color: var(--kb-forest);">Sports</span>
           </div>
           <div class="p-4 d-flex flex-column flex-grow-1">
@@ -360,9 +382,9 @@
 
       <!-- Article 3 -->
       <div class="col-lg-4 col-md-6">
-        <article class="news-card">
+        <article class="news-card reveal delay-2">
           <div class="news-thumb-wrap">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=700&auto=format&fit=crop" alt="ICT Suite Upgrade">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=700&auto=format&fit=crop" alt="ICT Suite Upgrade" loading="lazy">
             <span class="news-badge" style="background-color: var(--kb-gold-dark);">Infrastructure</span>
           </div>
           <div class="p-4 d-flex flex-column flex-grow-1">

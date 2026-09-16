@@ -31,40 +31,40 @@
       </div>
     </a>
 
-    <!-- Mobile Hamburger Toggle -->
-    <button class="navbar-toggler border-0 p-2 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavOffcanvas" aria-controls="mobileNavOffcanvas" aria-label="Toggle navigation">
-      <i class="bi bi-list fs-1 text-primary"></i>
+    <!-- Mobile Hamburger Toggle (desktop nav is inline, so hide on lg+) -->
+    <button class="navbar-toggler border-0 p-2 shadow-none d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavOffcanvas" aria-controls="mobileNavOffcanvas" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-2 text-primary"></i>
     </button>
 
     <!-- Desktop Navigation Links -->
     <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarNav">
       <ul class="navbar-nav align-items-center gap-1">
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %} href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About Us</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %} href="{% url 'about' %}">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'academics' %}active{% endif %}" href="{% url 'academics' %}">Academics</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'academics' %}active{% endif %}" {% if request.resolver_match.url_name == 'academics' %}aria-current="page"{% endif %} href="{% url 'academics' %}">Academics</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'admissions' %}active{% endif %}" href="{% url 'admissions' %}">Admissions</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'admissions' %}active{% endif %}" {% if request.resolver_match.url_name == 'admissions' %}aria-current="page"{% endif %} href="{% url 'admissions' %}">Admissions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'student_life' %}active{% endif %}" href="{% url 'student_life' %}">Student Life</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'student_life' %}active{% endif %}" {% if request.resolver_match.url_name == 'student_life' %}aria-current="page"{% endif %} href="{% url 'student_life' %}">Student Life</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'departments' %}active{% endif %}" href="{% url 'departments' %}">Departments</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'departments' %}active{% endif %}" {% if request.resolver_match.url_name == 'departments' %}aria-current="page"{% endif %} href="{% url 'departments' %}">Departments</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'news' %}active{% endif %}" href="{% url 'news' %}">News &amp; Events</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'news' %}active{% endif %}" {% if request.resolver_match.url_name == 'news' %}aria-current="page"{% endif %} href="{% url 'news' %}">News &amp; Events</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery' %}">Gallery</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" {% if request.resolver_match.url_name == 'gallery' %}aria-current="page"{% endif %} href="{% url 'gallery' %}">Gallery</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %} href="{% url 'contact' %}">Contact</a>
         </li>
         <li class="nav-item ms-2">
           <a href="{% url 'admissions' %}" class="btn btn-kb-gold btn-sm px-3 py-2">
@@ -91,34 +91,34 @@
   <div class="offcanvas-body d-flex flex-column justify-content-between p-4">
     <ul class="nav flex-column gap-2">
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}"><i class="bi bi-house-door me-2"></i> Home</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %} href="{% url 'home' %}"><i class="bi bi-house-door me-2"></i> Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}"><i class="bi bi-info-circle me-2"></i> About Us</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %} href="{% url 'about' %}"><i class="bi bi-info-circle me-2"></i> About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'academics' %}active{% endif %}" href="{% url 'academics' %}"><i class="bi bi-mortarboard me-2"></i> Academics</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'academics' %}active{% endif %}" {% if request.resolver_match.url_name == 'academics' %}aria-current="page"{% endif %} href="{% url 'academics' %}"><i class="bi bi-mortarboard me-2"></i> Academics</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'admissions' %}active{% endif %}" href="{% url 'admissions' %}"><i class="bi bi-file-earmark-person me-2"></i> Admissions</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'admissions' %}active{% endif %}" {% if request.resolver_match.url_name == 'admissions' %}aria-current="page"{% endif %} href="{% url 'admissions' %}"><i class="bi bi-file-earmark-person me-2"></i> Admissions</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'student_life' %}active{% endif %}" href="{% url 'student_life' %}"><i class="bi bi-trophy me-2"></i> Student Life</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'student_life' %}active{% endif %}" {% if request.resolver_match.url_name == 'student_life' %}aria-current="page"{% endif %} href="{% url 'student_life' %}"><i class="bi bi-trophy me-2"></i> Student Life</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'departments' %}active{% endif %}" href="{% url 'departments' %}"><i class="bi bi-diagram-3 me-2"></i> Departments</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'departments' %}active{% endif %}" {% if request.resolver_match.url_name == 'departments' %}aria-current="page"{% endif %} href="{% url 'departments' %}"><i class="bi bi-diagram-3 me-2"></i> Departments</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'news' %}active{% endif %}" href="{% url 'news' %}"><i class="bi bi-newspaper me-2"></i> News &amp; Events</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'news' %}active{% endif %}" {% if request.resolver_match.url_name == 'news' %}aria-current="page"{% endif %} href="{% url 'news' %}"><i class="bi bi-newspaper me-2"></i> News &amp; Events</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery' %}"><i class="bi bi-images me-2"></i> Gallery</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" {% if request.resolver_match.url_name == 'gallery' %}aria-current="page"{% endif %} href="{% url 'gallery' %}"><i class="bi bi-images me-2"></i> Gallery</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}"><i class="bi bi-envelope me-2"></i> Contact Us</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %} href="{% url 'contact' %}"><i class="bi bi-envelope me-2"></i> Contact Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'feedback' %}active{% endif %}" href="{% url 'feedback' %}"><i class="bi bi-shield-check me-2"></i> Feedback &amp; Grievances</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'feedback' %}active{% endif %}" {% if request.resolver_match.url_name == 'feedback' %}aria-current="page"{% endif %} href="{% url 'feedback' %}"><i class="bi bi-shield-check me-2"></i> Feedback &amp; Grievances</a>
       </li>
     </ul>
 
@@ -128,6 +128,8 @@
       </a>
       <div class="small text-muted">
         <p class="mb-1"><i class="bi bi-geo-alt me-1 text-primary"></i> {{ sp.physical_address|default:"Kigumo, Murang'a County" }}</p>
+        <p class="mb-1"><i class="bi bi-telephone-fill me-1 text-primary"></i> <a href="tel:+254{{ sp.phone|default:'0710336023'|slice:'1:' }}" class="text-secondary"> {{ sp.phone|default:"0710336023" }}</a></p>
+        <p class="mb-1"><i class="bi bi-envelope-fill me-1 text-primary"></i> <a href="mailto:{{ sp.email|default:'kabiraallan79@gmail.com' }}" class="text-secondary">{{ sp.email|default:"kabiraallan79@gmail.com" }}</a></p>
         <p class="mb-0"><i class="bi bi-clock me-1 text-primary"></i> {{ sp.office_hours|default:"Mon - Fri: 8:00 AM - 5:00 PM" }}</p>
       </div>
     </div>

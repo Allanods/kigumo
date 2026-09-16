@@ -48,7 +48,7 @@
         <div class="row g-4">
           {% for article in news_articles %}
           <div class="col-md-6">
-            <article class="news-card">
+            <article class="news-card reveal">
               <div class="news-thumb-wrap">
                 <img src="{{ article.display_image }}" alt="{{ article.title }}" loading="lazy">
                 {% if article.category %}<span class="news-badge">{{ article.category.name }}</span>{% endif %}
